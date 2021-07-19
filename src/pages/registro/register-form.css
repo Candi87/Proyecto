@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .fondo {
+    background: url(../../assets/rscamino.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+} */
+.terminos {
+    font-size: 10px;
+    color: black;
+}
+.icono {
+    display: inline-block;
+}
+.registrado {
+    color: black;
+    text-decoration: none;
+}
