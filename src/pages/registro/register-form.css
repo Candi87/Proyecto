@@ -4,12 +4,15 @@
     box-sizing: border-box;
 }
 
-/* .fondo {
+.fondo {
     background: url(../../assets/rscamino.jpg);
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
-} */
+    width: 100vw;
+    height: 100vh;
+    padding-top: 40px;
+}
 .terminos {
     font-size: 10px;
     color: black;

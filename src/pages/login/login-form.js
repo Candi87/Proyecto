@@ -7,7 +7,6 @@ import './login.css';
 const Title = styled.h1`
     background-color: black;
     color: white;
-    /* margin-top: 40px; */
 
     padding-left: 50px;
     padding-top: 15px;
@@ -93,7 +92,7 @@ function Login() {
         performLogin();
     }
     return (
-        <div className="login-form-login">
+        <div className="fondo-login">
             <Title>
                 <TiBook className="icono" />A GUÍA DO CAMIÑO
             </Title>

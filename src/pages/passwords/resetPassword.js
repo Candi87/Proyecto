@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { TiBook } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import './resetPassword.css';
 
 const Title = styled.h1`
     background-color: black;
     color: white;
-    margin-top: 40px;
 
     padding-left: 50px;
     padding-top: 15px;
@@ -97,7 +97,7 @@ function ResetPassword() {
         emailConfirm('');
     }
     return (
-        <div>
+        <div className="fondo-reset-pass">
             <Title>
                 <TiBook className="icono" />A GUÍA DO CAMIÑO
             </Title>

@@ -7,7 +7,6 @@ import './register-form.css';
 const Title = styled.h1`
     background-color: black;
     color: white;
-    margin-top: 40px;
 
     padding-left: 50px;
     padding-top: 15px;
@@ -109,6 +108,11 @@ function RegisterForm() {
         registerConfirm();
         setError('');
     }
+    // function onPressEnterKey(event){
+    //     if(event.key ==="Enter"){
+    //         onSubmitRegister
+    //     }
+    // }
     return (
         <div className="fondo">
             <Title>

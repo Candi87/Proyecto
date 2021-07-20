@@ -9,21 +9,19 @@ import ResetPassword from './pages/passwords/resetPassword';
 function rscamino() {
     return (
         <Router>
-            <header className="fondo">
-                <div className="App">
-                    <Switch>
-                        <Route path="/login">
-                            <Login />
-                        </Route>
-                        <Route path="/register">
-                            <RegisterForm />
-                        </Route>
-                        <Route path="/resetpassword">
-                            <ResetPassword />
-                        </Route>
-                    </Switch>
-                </div>
-            </header>
+            <div className="App">
+                <Switch>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route path="/register">
+                        <RegisterForm />
+                    </Route>
+                    <Route path="/resetpassword">
+                        <ResetPassword />
+                    </Route>
+                </Switch>
+            </div>
         </Router>
     );
 }
