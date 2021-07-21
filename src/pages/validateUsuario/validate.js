@@ -14,7 +14,7 @@ function ValidateUser() {
                 {
                     method: 'POST',
                     headers: {
-                        'Content-type': 'aplication/json',
+                        'Content-type': 'application/json',
                     },
                     body: JSON.stringify({
                         registrationCode,
