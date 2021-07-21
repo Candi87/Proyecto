@@ -93,7 +93,7 @@ function RegisterForm() {
                     name,
                     email,
                     password,
-                    nickname: nickname,
+                    nickname,
                 }),
             });
 
@@ -189,7 +189,7 @@ function RegisterForm() {
 }
 export default RegisterForm;
 
-function validateRegisterForm(email, password, repeatedPassword, username) {
+function validateRegisterForm(email, password, repeatedPassword, nickname) {
     if (!email) {
         return 'El campo email es obligatorio';
     }
@@ -202,7 +202,7 @@ function validateRegisterForm(email, password, repeatedPassword, username) {
         return 'El campo password es obligatorio';
     }
 
-    if (!username) {
+    if (!nickname) {
         return 'El campo username es obligatorio';
     }
 
