@@ -1,56 +1,11 @@
 import { useState } from 'react';
 import { TiBook } from 'react-icons/ti';
-import styled from 'styled-components';
-import './resetPassword.css';
-
-const Title = styled.h1`
-    background-color: black;
-    color: white;
-
-    padding-left: 50px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-`;
-
-const Form = styled.form`
-    width: 350px;
-    background-color: white;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    opacity: 0.8;
-`;
-const Button = styled.button`
-    width: 100%;
-    background: #1977f2;
-    border: none;
-    margin: 16px 0;
-    font-size: 16px;
-    padding: 12px;
-    color: white;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #176fe4;
-        color: white;
-    }
-`;
-const Input = styled.input`
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 18px;
-`;
+import { Title, Input, Button, FormResetPassword } from '../../estilos/estilos';
+import useBackgroundImg from '../../customHooks/useBackgroundImg';
+import myBackgroundImg from '../../assets/camino6.jpg';
 
 function ResetPassword() {
+    useBackgroundImg(myBackgroundImg);
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
@@ -88,7 +43,7 @@ function ResetPassword() {
             <Title>
                 <TiBook className="icono" />A GUÍA DO CAMIÑO
             </Title>
-            <Form onSubmit={onSubmitResetPassword}>
+            <FormResetPassword onSubmit={onSubmitResetPassword}>
                 <label>
                     <Input
                         value={email}
@@ -101,7 +56,7 @@ function ResetPassword() {
                 <Button type="submit" value="Enviar">
                     Enviar
                 </Button>
-            </Form>
+            </FormResetPassword>
         </div>
     );
 }

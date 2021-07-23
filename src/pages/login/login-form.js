@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import { TiBook } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
-import './login.css';
+import styled from 'styled-components';
+import useBackgroundImg from '../../customHooks/useBackgroundImg';
+import myBackgroundImg from '../../assets/camino7.jpg';
 
 const Title = styled.h1`
     background-color: black;
@@ -63,11 +64,19 @@ const P = styled.p`
 `;
 
 function Login() {
+    useBackgroundImg(myBackgroundImg);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
     function submitLogin(event) {
         event.preventDefault();
+        const error = validateLogin(email, password);
+        if (error) {
+            setError(error);
+            return;
+        }
         async function performLogin() {
             const response = await fetch(
                 'http://localhost:4000/usuarios/login',
@@ -115,6 +124,7 @@ function Login() {
                         onChange={(event) => setPassword(event.target.value)}
                         placeholder="contraseña"
                     ></Input>
+                    {error && <div className="error-label">{error}</div>}
                 </label>
                 <div>
                     <Button type="submit">Login</Button>
@@ -132,4 +142,12 @@ function Login() {
     );
 }
 export default Login;
-//TODO: HACER ERRORES
+
+function validateLogin(email, password) {
+    if (!email) {
+        return `Email o contraseña incorrectos`;
+    }
+    if (!password) {
+        return `Email o contraseña incorrectos`;
+    }
+}

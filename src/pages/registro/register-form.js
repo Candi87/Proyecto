@@ -1,88 +1,49 @@
 import { useState } from 'react';
 import { TiBook } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    Title,
+    P,
+    Input,
+    Button,
+    Form,
+    GrupoInput,
+    IconValidate,
+    Error,
+    MensajeError,
+    ErrorForm,
+    LinkLogin,
+} from '../../estilos/estilos';
 import './register-form.css';
+import useBackgroundImg from '../../customHooks/useBackgroundImg';
+import myBackGroundImg from '../../assets/camino4.jpg';
 
-const Title = styled.h1`
-    background-color: black;
-    color: white;
-
-    padding-left: 50px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-`;
-
-const Form = styled.form`
-    width: 350px;
-    background-color: white;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    opacity: 0.8;
-`;
-const Button = styled.button`
-    width: 100%;
-    background: #1977f2;
-    border: none;
-    margin: 16px 0;
-    font-size: 16px;
-    padding: 12px;
-    color: white;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #176fe4;
-        color: white;
-    }
-`;
-
-const Input = styled.input`
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 18px;
-`;
-const P = styled.p`
-    text-decoration: none;
-    color: blue;
-    display: inline-block;
-    font-size: 14px;
-
-    &:hover {
-        text-decoration: underline;
-    }
-`;
+import {
+    faCheckCircle,
+    faExclamationTriangle,
+} from '@fortawesome/free-solid-svg-icons';
 
 function RegisterForm() {
+    useBackgroundImg(myBackGroundImg);
+
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [nickname, setNickName] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
-    const [error, setError] = useState('');
-    const [name, setName] = useState('');
+
+    const expresiones = {
+        nickname: /^[a-zA-Z0-9\_\-]{4,30}$/,
+        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+        password: /^.{4,12}$/,
+        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    };
 
     function onSubmitRegister(event) {
         event.preventDefault();
-        const error = validateRegisterForm(
-            email,
-            password,
-            repeatPassword,
-            nickname
-        );
-        if (error) {
-            setError(error);
-            return;
-        }
+
         async function registerConfirm() {
             const response = await fetch('http://localhost:4000/usuarios/', {
                 method: 'POST',
@@ -99,20 +60,11 @@ function RegisterForm() {
 
             const data = await response.json();
 
-            if (data.message) {
-                setError(data.message);
-                return;
-            }
             setConfirmEmail(`Valida tu cuenta de correo ${data.email} `);
         }
         registerConfirm();
-        setError('');
     }
-    // function onPressEnterKey(event){
-    //     if(event.key ==="Enter"){
-    //         onSubmitRegister
-    //     }
-    // }
+
     return (
         <div className="fondo">
             <Title>
@@ -122,64 +74,99 @@ function RegisterForm() {
                 <Form onSubmit={onSubmitRegister}>
                     <label className="datos-container">
                         <label className="datos-container">
+                            <GrupoInput>
+                                <Input
+                                    value={name}
+                                    onChange={(event) =>
+                                        setName(event.target.value)
+                                    }
+                                    type="text"
+                                    placeholder="Ingrese su Nombre y Apellidos"
+                                    leyendaError="El usuario tiene que ser min de 4 a 30 gígitos y sólo puede contener letras"
+                                    // expresiones={}
+                                />
+                                <IconValidate icon={faCheckCircle} />
+                            </GrupoInput>
+                            <Error>Rellene este campo</Error>
+                        </label>
+                        <GrupoInput>
                             <Input
-                                value={name}
+                                value={email}
                                 onChange={(event) =>
-                                    setName(event.target.value)
+                                    setEmail(event.target.value)
                                 }
                                 type="text"
-                                placeholder="Ingrese su Nombre y Apellidos"
-                            ></Input>
-                        </label>
-
-                        <Input
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            type="text"
-                            placeholder="Ingrese su email"
-                        ></Input>
+                                placeholder="Ingrese su email"
+                            />
+                            <IconValidate icon={faCheckCircle} />
+                        </GrupoInput>
+                        <Error>Error</Error>
                     </label>
                     <label className="datos-container">
-                        <Input
-                            value={nickname}
-                            onChange={(event) =>
-                                setNickName(event.target.value)
-                            }
-                            type="text"
-                            placeholder="Ingrese el Nombre de Usuario"
-                        />
-                    </label>
-                    <label className="datos-container">
-                        <Input
-                            value={password}
-                            onChange={(event) =>
-                                setPassword(event.target.value)
-                            }
-                            type="password"
-                            placeholder="Ingrese su Contraseña"
-                        ></Input>
-                        <label className="datos-container">
+                        <GrupoInput>
                             <Input
-                                value={repeatPassword}
+                                value={nickname}
                                 onChange={(event) =>
-                                    setRepeatPassword(event.target.value)
+                                    setNickName(event.target.value)
+                                }
+                                type="text"
+                                placeholder="Ingrese el Nombre de Usuario"
+                            />
+                            <IconValidate icon={faCheckCircle} />
+                        </GrupoInput>
+                        <Error>Error</Error>
+                    </label>
+                    <label className="datos-container">
+                        <GrupoInput>
+                            <Input
+                                value={password}
+                                onChange={(event) =>
+                                    setPassword(event.target.value)
                                 }
                                 type="password"
-                                placeholder="Repita su Contraseña"
+                                placeholder="Ingrese su Contraseña"
                             />
+                            <IconValidate icon={faCheckCircle} />
+                        </GrupoInput>
+                        <Error>Error</Error>
+                        <label className="datos-container">
+                            <GrupoInput>
+                                <Input
+                                    value={repeatPassword}
+                                    onChange={(event) =>
+                                        setRepeatPassword(event.target.value)
+                                    }
+                                    type="password"
+                                    placeholder="Repita su Contraseña"
+                                />
+                                <IconValidate icon={faCheckCircle} />
+                            </GrupoInput>
+                            <Error>Error</Error>
                         </label>
                         <div>
                             <p className="terminos">
-                                Al hacer clic en Registrar, aceptas nuestras
-                                Condiciones.
+                                Al hacer clic en Registrar, aceptas nuestros
+                                términos y condiciones.
                             </p>
                             <Button type="submit">Registrar</Button>
                         </div>
+                        <LinkLogin>
+                            <Link to="/login">
+                                <P>Ya tengo cuenta</P>
+                            </Link>
+                        </LinkLogin>
 
-                        <Link to="/login">
-                            <P className="registrado">Ya tengo cuenta</P>
-                        </Link>
-                        {error && <div className="error-label">{error} </div>}
+                        {false && (
+                            <MensajeError>
+                                <ErrorForm>
+                                    <FontAwesomeIcon
+                                        icon={faExclamationTriangle}
+                                    />
+                                    <b> Error :</b> Por favor rellena el
+                                    formulario correctamente
+                                </ErrorForm>
+                            </MensajeError>
+                        )}
                         {confirmEmail && <div>{confirmEmail} </div>}
                     </label>
                 </Form>
@@ -188,27 +175,3 @@ function RegisterForm() {
     );
 }
 export default RegisterForm;
-
-function validateRegisterForm(email, password, repeatedPassword, nickname) {
-    if (!email) {
-        return 'El campo email es obligatorio';
-    }
-
-    if (!password) {
-        return 'El campo password es obligatorio';
-    }
-
-    if (!repeatedPassword) {
-        return 'El campo password es obligatorio';
-    }
-
-    if (!nickname) {
-        return 'El campo username es obligatorio';
-    }
-
-    const isValidPassword = password === repeatedPassword;
-
-    if (!isValidPassword) {
-        return 'Las contraseñas deben coincidir';
-    }
-}

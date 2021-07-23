@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .rscamino {
     text-align: center;
 }
@@ -9,6 +15,10 @@ body {
         'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding-top: 40px;
 }
 
 code {
