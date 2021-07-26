@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { TiBook } from 'react-icons/ti';
-import { Title, P, Input, Button, Form } from '../../estilos/estilos';
-import useBackgroundImg from '../../customHooks/useBackgroundImg';
-import myBackgroundImg from '../../assets/camino5.jpg';
+import { Title, Input, Button, Form } from '../../estilos/estilos';
+import useBackGroundImg from '../../customHooks/useBackgroundImg';
+import myBackGroundImg from '../../assets/camino5.jpg';
 
 function ResetUsuarioPass() {
-    useBackgroundImg(myBackgroundImg);
+    useBackGroundImg(myBackGroundImg);
 
     const [recoverCode, setRecoverCode] = useState('');
     const [newPassword, setNewPasswor] = useState('');

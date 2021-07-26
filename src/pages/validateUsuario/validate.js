@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import useBackgroundImg from '../../customHooks/useBackgroundImg';
-import myBackgroundImg from '../../assets/camino3.jpg';
+import useBackGroundImg from '../../customHooks/useBackgroundImg';
+import myBackGroundImg from '../../assets/camino3.jpg';
 
 function ValidateUser() {
-    useBackgroundImg(myBackgroundImg);
+    useBackGroundImg(myBackGroundImg);
 
     const query = new URLSearchParams(useLocation().search);
     let history = useHistory();

@@ -8,11 +8,12 @@ import ResetPassword from './pages/passwords/resetPassword';
 import ValidateUser from './pages/validateUsuario/validate';
 import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
-import useBackgroundImg from './customHooks/useBackgroundImg';
+import useBackGroundImg from './customHooks/useBackgroundImg';
 import myBackgroundImg from './assets/camino11.jpg';
+import Menu from './components/menu';
 
 function Rscamino() {
-    useBackgroundImg(myBackgroundImg);
+    useBackGroundImg(myBackgroundImg);
 
     return (
         <ErrorBoundary>
@@ -33,7 +34,10 @@ function Rscamino() {
                             <ValidateUser />
                         </Route>
                         <Route path={'/usuarios/password'}>
-                            <ResetUsuarioPass />{' '}
+                            <ResetUsuarioPass />
+                        </Route>
+                        <Route exact path={'/'}>
+                            <Menu />
                         </Route>
                     </Switch>
                 </div>

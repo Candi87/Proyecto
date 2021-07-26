@@ -121,6 +121,37 @@ const ErrorForm = styled.p`
         margin-left: 2px;
     }
 `;
+const P1 = styled.p`
+    text-decoration: none;
+    color: blue;
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 30px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+const FormLogin = styled.form`
+    width: 350px;
+    background-color: white;
+    padding: 30px;
+    margin: auto;
+    margin-top: 165px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    opacity: 0.8;
+`;
+
+const Label = styled.label`
+    font-size: 13px;
+    text-align: center;
+`;
+const PMenu = styled.p`
+    font-size: 16px;
+`;
+
 export {
     LinkLogin,
     Title,
@@ -134,4 +165,8 @@ export {
     MensajeError,
     FormResetPassword,
     ErrorForm,
+    P1,
+    FormLogin,
+    Label,
+    PMenu,
 };

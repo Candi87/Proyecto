@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-function useBackgroundImg(myBackGroundImg) {
+function useBackGroundImg(myBackGroundImg) {
     useEffect(() => {
         document.body.style.backgroundImage = `url(${myBackGroundImg})`;
     }, [myBackGroundImg]);
 }
 
-export default useBackgroundImg;
+export default useBackGroundImg;

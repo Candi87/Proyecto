@@ -16,16 +16,15 @@ import {
     LinkLogin,
 } from '../../estilos/estilos';
 import './register-form.css';
-import useBackgroundImg from '../../customHooks/useBackgroundImg';
-import myBackGroundImg from '../../assets/camino4.jpg';
-
+import useBackGroundImg from '../../customHooks/useBackgroundImg';
+import myBackGroundImg from '../../assets/camino12.jpg';
 import {
     faCheckCircle,
     faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 
 function RegisterForm() {
-    useBackgroundImg(myBackGroundImg);
+    useBackGroundImg(myBackGroundImg);
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -33,13 +32,6 @@ function RegisterForm() {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [nickname, setNickName] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
-
-    const expresiones = {
-        nickname: /^[a-zA-Z0-9\_\-]{4,30}$/,
-        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-        password: /^.{4,12}$/,
-        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    };
 
     function onSubmitRegister(event) {
         event.preventDefault();

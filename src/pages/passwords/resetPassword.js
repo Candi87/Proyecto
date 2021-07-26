@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import { TiBook } from 'react-icons/ti';
-import { Title, Input, Button, FormResetPassword } from '../../estilos/estilos';
-import useBackgroundImg from '../../customHooks/useBackgroundImg';
+import {
+    Title,
+    Input,
+    Button,
+    FormResetPassword,
+    Label,
+    LinkLogin,
+    P,
+} from '../../estilos/estilos';
+import useBackGroundImg from '../../customHooks/useBackgroundImg';
 import myBackgroundImg from '../../assets/camino6.jpg';
+import { Link } from 'react-router-dom';
 
 function ResetPassword() {
-    useBackgroundImg(myBackgroundImg);
+    useBackGroundImg(myBackgroundImg);
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
@@ -44,7 +53,8 @@ function ResetPassword() {
                 <TiBook className="icono" />A GUÍA DO CAMIÑO
             </Title>
             <FormResetPassword onSubmit={onSubmitResetPassword}>
-                <label>
+                <Label>
+                    Para recuperar la contraseña introduce el email:
                     <Input
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
@@ -52,10 +62,15 @@ function ResetPassword() {
                         placeholder="email"
                     ></Input>
                     {error && <div className="error-label">{error}</div>}
-                </label>
+                </Label>
                 <Button type="submit" value="Enviar">
                     Enviar
                 </Button>
+                <LinkLogin>
+                    <Link to="/login">
+                        <P>Ya tengo cuenta</P>
+                    </Link>
+                </LinkLogin>
             </FormResetPassword>
         </div>
     );
@@ -63,6 +78,6 @@ function ResetPassword() {
 export default ResetPassword;
 function validateResetPassword(email) {
     if (!email) {
-        return 'introduce el email si queires cambiar la contraseña atontao';
+        return 'introduce el email si quires cambiar la contraseña atontao';
     }
 }
