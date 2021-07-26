@@ -125,15 +125,15 @@ const P1 = styled.p`
     text-decoration: none;
     color: blue;
     display: inline-block;
-    font-size: 10px;
-    margin-left: 30px;
+    font-size: 11px;
+    margin-left: 22px;
 
     &:hover {
         text-decoration: underline;
     }
 `;
 const FormLogin = styled.form`
-    width: 350px;
+    width: 400px;
     background-color: white;
     padding: 30px;
     margin: auto;
@@ -150,6 +150,10 @@ const Label = styled.label`
 `;
 const PMenu = styled.p`
     font-size: 16px;
+`;
+const PTerminos = styled.p`
+    font-size: 14px;
+    text-align: left;
 `;
 
 export {
@@ -169,4 +173,5 @@ export {
     FormLogin,
     Label,
     PMenu,
+    PTerminos,
 };

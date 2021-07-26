@@ -8,13 +8,9 @@ import ResetPassword from './pages/passwords/resetPassword';
 import ValidateUser from './pages/validateUsuario/validate';
 import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
-import useBackGroundImg from './customHooks/useBackgroundImg';
-import myBackgroundImg from './assets/camino11.jpg';
 import Menu from './components/menu';
 
 function Rscamino() {
-    useBackGroundImg(myBackgroundImg);
-
     return (
         <ErrorBoundary>
             <Router>

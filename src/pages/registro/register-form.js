@@ -14,6 +14,7 @@ import {
     MensajeError,
     ErrorForm,
     LinkLogin,
+    PTerminos,
 } from '../../estilos/estilos';
 import './register-form.css';
 import useBackGroundImg from '../../customHooks/useBackgroundImg';
@@ -136,10 +137,10 @@ function RegisterForm() {
                             <Error>Error</Error>
                         </label>
                         <div>
-                            <p className="terminos">
+                            <PTerminos className="terminos">
                                 Al hacer clic en Registrar, aceptas nuestros
                                 términos y condiciones.
-                            </p>
+                            </PTerminos>
                             <Button type="submit">Registrar</Button>
                         </div>
                         <LinkLogin>
