@@ -2,40 +2,38 @@ import React from 'react';
 
 import { CgProfile } from 'react-icons/cg';
 import { HiOutlineMail } from 'react-icons/hi';
-import { MdAddAPhoto } from 'react-icons/md';
-import { RiLogoutBoxLine } from 'react-icons/ri';
 import { FiUnlock } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-
+import { AiOutlineFire } from 'react-icons/ai';
+import { CgSearch } from 'react-icons/cg';
 export const SidebarDataNoLogueado = [
     {
-        title: 'Editar Perfil',
-        path: '/',
+        title: 'Registrarse',
+        path: '/register',
         icon: <CgProfile />,
         cName: 'nav-text',
     },
     {
-        title: 'Cambiar Contraseña',
-        path: '/',
+        title: 'Login',
+        path: '/Login',
         icon: <FiUnlock />,
         cName: 'nav-text',
     },
     {
-        title: 'Subir Foto',
+        title: 'Tendencias',
         path: '/',
-        icon: <MdAddAPhoto />,
+        icon: <AiOutlineFire />,
         cName: 'nav-text',
     },
     {
-        title: 'Contacto',
+        title: 'Buscar',
+        path: '/',
+        icon: <CgSearch />,
+        cName: 'nav-text',
+    },
+    {
+        title: 'Contactanos',
         path: '/',
         icon: <HiOutlineMail />,
-        cName: 'nav-text',
-    },
-    {
-        title: 'Logout',
-        path: '/login',
-        icon: <RiLogoutBoxLine />,
         cName: 'nav-text',
     },
 ];

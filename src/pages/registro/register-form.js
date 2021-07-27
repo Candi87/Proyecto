@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     Title,
@@ -17,15 +17,14 @@ import {
     PTerminos,
 } from '../../estilos/estilos';
 import './register-form.css';
-import useBackGroundImg from '../../customHooks/useBackgroundImg';
-import myBackGroundImg from '../../assets/camino12.jpg';
+
 import {
     faCheckCircle,
     faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 
 function RegisterForm() {
-    useBackGroundImg(myBackGroundImg);
+    const history = useHistory();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -33,6 +32,7 @@ function RegisterForm() {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [nickname, setNickName] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
+    const [error, setError] = useState('');
 
     function onSubmitRegister(event) {
         event.preventDefault();
@@ -52,6 +52,12 @@ function RegisterForm() {
             });
 
             const data = await response.json();
+            if (!response.ok) {
+                setError(data.message);
+                return;
+            } else {
+                history.push('/login');
+            }
 
             setConfirmEmail(`Valida tu cuenta de correo ${data.email} `);
         }

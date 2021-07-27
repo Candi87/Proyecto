@@ -10,7 +10,7 @@ import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
 import Home from './pages/principal/Home';
 import Menu from './components/menologeado/menu';
-import MenuNoLogued from './components/menunologueado/menunologueado';
+import MenuNoLogued from './pages/notloguedpage/notloguedpage';
 
 function Rscamino() {
     return (
@@ -39,6 +39,9 @@ function Rscamino() {
                         </Route>
                         <Route exact path={'/'}>
                             <Home />
+                        </Route>
+                        <Route path={'/menulogued'}>
+                            <Menu />
                         </Route>
                     </Switch>
                 </div>

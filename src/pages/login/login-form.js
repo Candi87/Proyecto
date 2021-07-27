@@ -1,30 +1,25 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Title, Input, Button, P1, FormLogin } from '../../estilos/estilos';
-import useBackGroundImg from '../../customHooks/useBackgroundImg';
-import myBackGroundImg from '../../assets/camino7.jpg';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
-    useBackGroundImg(myBackGroundImg);
+    const history = useHistory();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    function submitLogin(event) {
+    function onSubmitLogin(event) {
         event.preventDefault();
-        const error = validateLogin(email, password);
-        if (error) {
-            setError(error);
-            return;
-        }
+
         async function performLogin() {
             const response = await fetch(
                 'http://localhost:4000/usuarios/login',
                 {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'aplication/json',
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         email,
@@ -32,11 +27,12 @@ function Login() {
                     }),
                 }
             );
+
             const data = response.json();
-            console.log(data);
-            if (data.httpStatusCode) {
+            if (!response.ok) {
                 setError(data.message);
             } else {
+                history.push('/menulogued');
             }
         }
         performLogin();
@@ -51,7 +47,7 @@ function Login() {
                     </h1>
                 </div>
                 <div className="main_page_access_buttons">
-                    <FormLogin submit={submitLogin}>
+                    <FormLogin onSubmit={onSubmitLogin}>
                         <label className="datos-container-login">
                             <Input
                                 className="datos-login"
@@ -95,12 +91,3 @@ function Login() {
     );
 }
 export default Login;
-
-function validateLogin(email, password) {
-    if (!email) {
-        return `Email o contraseña incorrectos`;
-    }
-    if (!password) {
-        return `Email o contraseña incorrectos`;
-    }
-}

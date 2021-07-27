@@ -9,13 +9,10 @@ import {
     LinkLogin,
     P,
 } from '../../estilos/estilos';
-import useBackGroundImg from '../../customHooks/useBackgroundImg';
-import myBackgroundImg from '../../assets/camino6.jpg';
+
 import { Link, useHistory } from 'react-router-dom';
 
 function ResetPassword() {
-    useBackGroundImg(myBackgroundImg);
-
     const history = useHistory();
 
     const [email, setEmail] = useState('');

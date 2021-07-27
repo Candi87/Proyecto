@@ -21,6 +21,7 @@
 }
 .title_1 {
     vertical-align: center;
+    padding-left: 0;
     text-align: center;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
@@ -41,6 +42,7 @@
 
 .title_2 {
     color: black;
+    padding-left: 0;
     text-align: center;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
