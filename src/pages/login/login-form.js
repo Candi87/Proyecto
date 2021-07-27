@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { TiBook } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 import { Title, Input, Button, P1, FormLogin } from '../../estilos/estilos';
 import useBackGroundImg from '../../customHooks/useBackgroundImg';
@@ -43,43 +42,55 @@ function Login() {
         performLogin();
     }
     return (
-        <div className="fondo-login">
-            <Title>
-                <TiBook className="icono" />A GUÍA DO CAMIÑO
-            </Title>
-
-            <FormLogin submit={submitLogin}>
-                <label className="datos-container-login">
-                    <Input
-                        className="datos-login"
-                        value={email}
-                        type="email"
-                        onChange={(event) => setEmail(event.target.value)}
-                        placeholder="email"
-                    />
-                </label>
-                <label className="datos-container">
-                    <Input
-                        className="datos-login"
-                        type="password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                        placeholder="contraseña"
-                    ></Input>
-                    {error && <div className="error-label">{error}</div>}
-                </label>
-                <div>
-                    <Button type="submit">Login</Button>
-                    <div>
-                        <Link to="register">
-                            <P1>No tengo cuenta</P1>
-                        </Link>
-                        <Link to="resetpassword">
-                            <P1>Has olvidado tú contraseña</P1>
-                        </Link>
-                    </div>
+        <div className="main_page_land">
+            <div className="main_page_screens"></div>
+            <div className="main_page_access">
+                <div className="main_page_access_titles">
+                    <h1 className="title_1">
+                        Bienvenido a la web del Camino de Santiago
+                    </h1>
                 </div>
-            </FormLogin>
+                <div className="main_page_access_buttons">
+                    <FormLogin submit={submitLogin}>
+                        <label className="datos-container-login">
+                            <Input
+                                className="datos-login"
+                                value={email}
+                                type="email"
+                                onChange={(event) =>
+                                    setEmail(event.target.value)
+                                }
+                                placeholder="email"
+                            />
+                        </label>
+                        <label className="datos-container">
+                            <Input
+                                className="datos-login"
+                                type="password"
+                                value={password}
+                                onChange={(event) =>
+                                    setPassword(event.target.value)
+                                }
+                                placeholder="contraseña"
+                            ></Input>
+                            {error && (
+                                <div className="error-label">{error}</div>
+                            )}
+                        </label>
+                        <div>
+                            <Button type="submit">Login</Button>
+                            <div>
+                                <Link to="register">
+                                    <P1>No tengo cuenta</P1>
+                                </Link>
+                                <Link to="resetpassword">
+                                    <P1>Has olvidado tú contraseña</P1>
+                                </Link>
+                            </div>
+                        </div>
+                    </FormLogin>
+                </div>
+            </div>
         </div>
     );
 }

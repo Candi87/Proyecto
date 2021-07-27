@@ -48,30 +48,39 @@ function ResetPassword() {
         setError('');
     }
     return (
-        <div className="fondo-reset-pass">
-            <Title>
-                <TiBook className="icono" />A GUÍA DO CAMIÑO
-            </Title>
-            <FormResetPassword onSubmit={onSubmitResetPassword}>
-                <Label>
-                    Para recuperar la contraseña introduce el email:
-                    <Input
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                        type="text"
-                        placeholder="email"
-                    ></Input>
-                    {error && <div className="error-label">{error}</div>}
-                </Label>
-                <Button type="submit" value="Enviar">
-                    Enviar
-                </Button>
-                <LinkLogin>
-                    <Link to="/login">
-                        <P>Ya tengo cuenta</P>
-                    </Link>
-                </LinkLogin>
-            </FormResetPassword>
+        <div className="main_page_land">
+            <div className="main_page_screens"></div>
+            <div className="main_page_access">
+                <div className="main_page_access_titles">
+                    <h1 className="title_1">Recupera tu contraseña</h1>
+                </div>
+                <div className="register-form">
+                    <FormResetPassword onSubmit={onSubmitResetPassword}>
+                        <Label>
+                            Para recuperar la contraseña introduce el email:
+                            <Input
+                                value={email}
+                                onChange={(event) =>
+                                    setEmail(event.target.value)
+                                }
+                                type="text"
+                                placeholder="email"
+                            ></Input>
+                            {error && (
+                                <div className="error-label">{error}</div>
+                            )}
+                        </Label>
+                        <Button type="submit" value="Enviar">
+                            Enviar
+                        </Button>
+                        <LinkLogin>
+                            <Link to="/login">
+                                <P>Ya tengo cuenta</P>
+                            </Link>
+                        </LinkLogin>
+                    </FormResetPassword>
+                </div>
+            </div>
         </div>
     );
 }

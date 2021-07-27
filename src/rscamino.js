@@ -8,6 +8,7 @@ import ResetPassword from './pages/passwords/resetPassword';
 import ValidateUser from './pages/validateUsuario/validate';
 import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
+import Home from './pages/principal/Home';
 import Menu from './components/menu';
 
 function Rscamino() {
@@ -32,8 +33,11 @@ function Rscamino() {
                         <Route path={'/usuarios/password'}>
                             <ResetUsuarioPass />
                         </Route>
-                        <Route exact path={'/'}>
+                        <Route path={'/menu'}>
                             <Menu />
+                        </Route>
+                        <Route exact path={'/'}>
+                            <Home />
                         </Route>
                     </Switch>
                 </div>

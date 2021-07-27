@@ -1,37 +1,40 @@
 import React from 'react';
-import { BiBookAlt } from 'react-icons/bi';
 
-import { GrClose } from 'react-icons/gr';
+import { CgProfile } from 'react-icons/cg';
+import { HiOutlineMail } from 'react-icons/hi';
+import { MdAddAPhoto } from 'react-icons/md';
+import { RiLogoutBoxLine } from 'react-icons/ri';
+import { FiUnlock } from 'react-icons/fi';
 
 export const SidebarData = [
     {
-        title: 'Home',
+        title: 'Editar Perfil',
         path: '/',
-        icon: <BiBookAlt />,
+        icon: <CgProfile />,
         cName: 'nav-text',
     },
     {
-        title: 'Home',
+        title: 'Cambiar Contraseña',
         path: '/',
-        icon: <GrClose />,
+        icon: <FiUnlock />,
         cName: 'nav-text',
     },
     {
-        title: 'Home',
+        title: 'Subir Foto',
         path: '/',
-        icon: <GrClose />,
+        icon: <MdAddAPhoto />,
         cName: 'nav-text',
     },
     {
-        title: 'Home',
+        title: 'Contacto',
         path: '/',
-        icon: <GrClose />,
+        icon: <HiOutlineMail />,
         cName: 'nav-text',
     },
     {
-        title: 'Home',
-        path: '/',
-        icon: <GrClose />,
+        title: 'Logout',
+        path: '/login',
+        icon: <RiLogoutBoxLine />,
         cName: 'nav-text',
     },
 ];

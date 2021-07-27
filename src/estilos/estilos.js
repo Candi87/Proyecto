@@ -29,7 +29,8 @@ const Title = styled.h1`
 
 const Form = styled.form`
     width: 350px;
-    background-color: white;
+    background-color: black;
+
     padding: 30px;
     margin: auto;
     margin-top: 70px;
@@ -40,18 +41,20 @@ const Form = styled.form`
     opacity: 0.8;
 `;
 const Button = styled.button`
+    text-decoration: none;
+    margin: auto;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: black;
+    border-radius: 6px;
+    border: 2px solid white;
     width: 100%;
-    background: #1977f2;
-    border: none;
-    margin: 16px 0;
-    font-size: 16px;
-    padding: 12px;
-    color: white;
-    cursor: pointer;
-
+    text-align: center;
     &:hover {
-        background-color: #176fe4;
-        color: white;
+        color: black;
+        background-color: whitesmoke;
     }
 `;
 
@@ -134,10 +137,9 @@ const P1 = styled.p`
 `;
 const FormLogin = styled.form`
     width: 400px;
-    background-color: white;
+    background-color: black;
     padding: 30px;
     margin: auto;
-    margin-top: 165px;
 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
