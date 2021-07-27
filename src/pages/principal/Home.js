@@ -21,7 +21,7 @@ function Home() {
                 </div>
                 <div className="omit_access_button">
                     ¿No quieres registrarte?
-                    <Link to="menu"> Saltar este paso</Link>
+                    <Link to="menunotlogued"> Saltar este paso</Link>
                 </div>
             </div>
         </div>

@@ -3,9 +3,12 @@ import { TiBook } from 'react-icons/ti';
 import { Title, Input, Button, Form } from '../../estilos/estilos';
 import useBackGroundImg from '../../customHooks/useBackgroundImg';
 import myBackGroundImg from '../../assets/camino5.jpg';
+import { useHistory } from 'react-router-dom';
 
 function ResetUsuarioPass() {
     useBackGroundImg(myBackGroundImg);
+
+    const history = useHistory();
 
     const [recoverCode, setRecoverCode] = useState('');
     const [newPassword, setNewPasswor] = useState('');
@@ -33,9 +36,11 @@ function ResetUsuarioPass() {
             );
 
             const data = await response.json();
-            if (data.message) {
+            if (!response.ok) {
                 setError(data.message);
                 return;
+            } else {
+                history.push('/login');
             }
         }
         resetUsuarioPassConfirm();
@@ -92,10 +97,10 @@ function validateResetUsuariosPass(
         return 'El código de recuperación que estas introduceindo no es el correcto, anda corta y pega que te será más fácil';
     }
     if (!newPassword) {
-        return 'A ver, quieres cambiar la contraseña y no la estás introduciendo?';
+        return 'A ver, ¿quieres cambiar la contraseña y no la estás introduciendo?';
     }
     if (!repeatNewPassWord) {
-        return 'A ver, quieres cambiar la contraseña y no la estás introduciendo?';
+        return 'A ver, ¿quieres cambiar la contraseña y no la estás introduciendo?';
     }
 
     const isValidPassword = newPassword === repeatNewPassWord;

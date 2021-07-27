@@ -9,7 +9,8 @@ import ValidateUser from './pages/validateUsuario/validate';
 import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
 import Home from './pages/principal/Home';
-import Menu from './components/menu';
+import Menu from './components/menologeado/menu';
+import MenuNoLogued from './components/menunologueado/menunologueado';
 
 function Rscamino() {
     return (
@@ -33,8 +34,8 @@ function Rscamino() {
                         <Route path={'/usuarios/password'}>
                             <ResetUsuarioPass />
                         </Route>
-                        <Route path={'/menu'}>
-                            <Menu />
+                        <Route path={'/menunotlogued'}>
+                            <MenuNoLogued />
                         </Route>
                         <Route exact path={'/'}>
                             <Home />

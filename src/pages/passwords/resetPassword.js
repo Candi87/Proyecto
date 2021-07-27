@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TiBook } from 'react-icons/ti';
+
 import {
     Title,
     Input,
@@ -11,10 +11,13 @@ import {
 } from '../../estilos/estilos';
 import useBackGroundImg from '../../customHooks/useBackgroundImg';
 import myBackgroundImg from '../../assets/camino6.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function ResetPassword() {
     useBackGroundImg(myBackgroundImg);
+
+    const history = useHistory();
+
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
@@ -39,9 +42,11 @@ function ResetPassword() {
                 }
             );
             const data = await response.json();
-            if (data.message) {
+            if (!response.ok) {
                 setError(data.message);
                 return;
+            } else {
+                history.push('/usuarios/password');
             }
         }
         resetPasswordConfirm();

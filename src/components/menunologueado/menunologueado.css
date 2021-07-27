@@ -38,7 +38,7 @@
 
 .nav-text a {
     text-decoration: none;
-    color: white;
+    color: #f9f9f9;
     font-size: 18px;
     width: 95%;
     height: 100%;
@@ -68,7 +68,7 @@ span {
 }
 
 h1 {
-    color: white;
+    color: #f9f9f9;
     padding-left: 200px;
 }
 body {
