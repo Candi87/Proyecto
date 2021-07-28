@@ -1,28 +1,19 @@
 import { useEffect } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
-import useBackGroundImg from '../../customHooks/useBackgroundImg';
-import myBackGroundImg from '../../assets/camino3.jpg';
+import { useHistory } from 'react-router-dom';
+
+import { useParams } from 'react-router';
 
 function ValidateUser() {
-    useBackGroundImg(myBackGroundImg);
-
-    const query = new URLSearchParams(useLocation().search);
     let history = useHistory();
 
-    const registrationCode = query.get('registrationCode');
+    let { registrationCode } = useParams();
 
     useEffect(() => {
         async function performRegistrationCode() {
             const response = await fetch(
-                'http://localhost:4000/usuarios/validate',
+                `http://localhost:4000/usuarios/validate/${registrationCode}`,
                 {
-                    method: 'POST',
-                    headers: {
-                        'Content-type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        registrationCode,
-                    }),
+                    method: 'GET',
                 }
             );
             await response.json();

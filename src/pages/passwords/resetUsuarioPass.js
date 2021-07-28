@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { TiBook } from 'react-icons/ti';
-import { Title, Input, Button, Form } from '../../estilos/estilos';
+
+import { Input, Button, Form } from '../../estilos/estilos';
 
 import { useHistory } from 'react-router-dom';
 
@@ -93,7 +93,7 @@ function ResetUsuarioPass() {
     );
 }
 export default ResetUsuarioPass;
-
+//TODO
 function validateResetUsuariosPass(
     recoverCode,
     newPassword,

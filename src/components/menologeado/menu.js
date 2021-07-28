@@ -24,6 +24,8 @@ function Menu() {
                             onClick={showSidebar}
                         />
                     </Link>
+                    <img className="searchIcon" src="" alt="search-icon" />
+                    <span className="searchText">Search</span>
                     <h1>A GUÍA DO CAMIÑO</h1>
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

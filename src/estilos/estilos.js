@@ -18,15 +18,6 @@ const P = styled.p`
     }
 `;
 
-const Title = styled.h1`
-    background-color: black;
-    color: white;
-
-    padding-left: 50px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-`;
-
 const Form = styled.form`
     width: 350px;
     background-color: black;
@@ -160,7 +151,6 @@ const PTerminos = styled.p`
 
 export {
     LinkLogin,
-    Title,
     P,
     Input,
     Button,

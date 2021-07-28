@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Title, Input, Button, P1, FormLogin } from '../../estilos/estilos';
+import { Input, Button, P1, FormLogin } from '../../estilos/estilos';
 import { useHistory } from 'react-router-dom';
 
 function Login() {

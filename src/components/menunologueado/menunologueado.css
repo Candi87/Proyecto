@@ -1,9 +1,13 @@
 .navbar {
     background-color: black;
-    height: 80px;
-    display: flex;
+
+    position: fixed;
+    width: 100%;
+    margin: auto;
     justify-content: start;
     align-items: center;
+    top: 0%;
+    z-index: 1;
 }
 .menu-bars {
     margin-left: 2rem;

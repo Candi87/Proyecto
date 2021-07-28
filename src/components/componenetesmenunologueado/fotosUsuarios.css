@@ -1,0 +1,96 @@
+.carrusel-fotos-perfil {
+    width: 120vh;
+    height: 200px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    border: 2px solid grey;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    border-radius: 4px;
+}
+.pruebas {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 2px solid black;
+    display: flex;
+}
+.pruebas > p {
+    position: absolute;
+
+    transform: translateX(50%) translateY(850%);
+}
+.bc {
+    background-color: grey;
+}
+
+.bc1 {
+    background-color: grey;
+}
+
+.bc2 {
+    background-color: grey;
+}
+
+.bc3 {
+    background-color: grey;
+}
+
+.bc4 {
+    background-color: grey;
+}
+p {
+    text-align: center;
+}
+.grid-last-photos ol {
+    width: 120vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1%;
+    gap: 10px;
+    margin-right: 260px;
+    margin-left: 260px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.cardimg {
+    background-color: #f9f9f9;
+    border: 1px solid grey;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cardimg img {
+    max-height: 800px;
+}
+.comentario {
+    width: 80%;
+    border: none;
+    font-size: 22px;
+    height: 36px;
+    margin-top: 12px;
+}
+.like {
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    transform: scale(2.3);
+}
+.numero-de-likes {
+    font-size: 14px;
+}
+
+.contenedor-like {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
+}

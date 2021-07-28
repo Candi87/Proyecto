@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    Title,
     P,
     Input,
     Button,
@@ -84,7 +83,6 @@ function RegisterForm() {
                                         type="text"
                                         placeholder="Ingrese su Nombre y Apellidos"
                                         leyendaError="El usuario tiene que ser min de 4 a 30 gígitos y sólo puede contener letras"
-                                        // expresiones={}
                                     />
                                     <IconValidate icon={faCheckCircle} />
                                 </GrupoInput>
