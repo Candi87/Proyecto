@@ -3,6 +3,7 @@ import Imagen from '../../assets/camino1.jpg';
 import './fotosUsuarios.css';
 import { useState } from 'react';
 import { Button } from './botonLike';
+import Comentario from '../comentario/Comentario';
 
 function FotosMuro() {
     const [like, setLike] = useState(false);
@@ -25,14 +26,10 @@ function FotosMuro() {
                     <li className="cardimg">
                         <img src={Imagen}></img>
 
-                        <input
-                            type="text"
-                            placeholder="Comenta las fotos que más te gusten aquí"
-                            className="comentario"
-                        />
                         <div className="contenedor-like">
                             <Button onClick={darLike}></Button>
-                            <p className="numero-de-likes">{countLike} Likes</p>
+                            <Comentario />
+                            <p className="numero-de-likes">{countLike} </p>
                         </div>
                     </li>
                     <li className="cardimg">

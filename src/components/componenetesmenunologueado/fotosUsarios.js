@@ -1,51 +1,66 @@
 import './fotosUsuarios.css';
 import HorizontalScroll from 'react-scroll-horizontal';
+import fotoperfil from '../../assets/fotoperfil.jpg';
 
 function FotosUsuarios() {
     return (
         <div>
             <div className="carrusel-fotos-perfil">
                 <HorizontalScroll>
-                    <div className="pruebas bc">
-                        <p className="nombres-usuarios">username</p>
-                    </div>
-                    <div className="pruebas bc1">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc2">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc3">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
-                    <div className="pruebas bc4">
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <p>username</p>
+                    </div>
+                    <div className="fotoperfil-container">
+                        <img src={fotoperfil} className="fotoperfil"></img>
                         <p>username</p>
                     </div>
                 </HorizontalScroll>
