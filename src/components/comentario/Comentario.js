@@ -1,63 +1,50 @@
 import './comentario.css';
-import AñadirComentario from './añadircomentario';
-import ListaComentarios from './listacomentario';
-import ComentarioItem from './comentarioitem';
-import { useState } from 'react';
 
-const COMENTARIOS_PREDEFINIDOS = [
-    {
-        id: 1,
-        label: 'Fotaza',
-    },
-    {
-        id: 2,
-        label: 'Fotaza',
-    },
-    {
-        id: 3,
-        label: 'Fotaza',
-    },
-    {
-        id: 4,
-        label: 'Fotaza',
-    },
-    {
-        id: 5,
-        label: 'Fotaza',
-    },
-];
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function Comentario() {
-    const [comentarios, setComentarios] = useState(COMENTARIOS_PREDEFINIDOS);
+function Comment() {
+    const [comentario, setComentario] = useState('');
 
-    function borrarComentario(comentarioId) {
-        //llamada a api aquí//
-        const comentarioFiltrados = comentarios.filter(
-            (comentario) => comentario.id !== comentarioId
-        );
+    const query = new URLSearchParams(useLocation().search);
+    const idUsuario = query.get('idUsuario');
+    const idImagen = query.get('idImagen');
 
-        setComentarios(comentarioFiltrados);
-    }
-    function addComentario(comenatrioLabel) {
-        const nuevoComentario = {
-            id: 6,
-            label: comenatrioLabel,
-        };
-        const nuevaListaComentarios = [...comentarios, nuevoComentario];
+    useEffect(() => {
+        function OnSubmitComment(event) {
+            event.preventDefault();
 
-        setComentarios(nuevaListaComentarios);
-    }
+            async function performAddComent() {
+                const response = await fetch(
+                    'http://localhost/usuarios/:idUsuario/photos/:idImagen/comment',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            comentario,
+                            idUsuario,
+                            idImagen,
+                        }),
+                    }
+                );
+                await response.json();
+            }
+            performAddComent();
+        }
+    }, [comentario, idUsuario, idImagen]);
 
     return (
         <div>
-            <AñadirComentario addComentario={addComentario} />
-
-            <ListaComentarios
-                borrarComentario={borrarComentario}
-                comentarios={comentarios}
+            <input
+                type="text"
+                className="coment"
+                value={comentario}
+                onChange={(event) => setComentario(event.target.value)}
             />
+            <button>+</button>
         </div>
     );
 }
-
-export default Comentario;
+export default Comment;

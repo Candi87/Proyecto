@@ -25,16 +25,17 @@ function FotosMuro() {
                 <ol>
                     <li className="cardimg">
                         <img src={Imagen}></img>
-
-                        <div className="contenedor-like">
+                        <div className="like-container">
                             <Button onClick={darLike}></Button>
-                            <Comentario />
-                            <p className="numero-de-likes">{countLike} </p>
+                            <p className="likes-number">{countLike} </p>
                         </div>
+                        <Comentario />
                     </li>
                     <li className="cardimg">
                         <img src={Imagen}></img>
-                        <input type="text" className="comentario" />
+                    </li>
+                    <li className="cardimg">
+                        <img src={Imagen}></img>
                     </li>
                 </ol>
             </div>

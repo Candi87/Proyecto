@@ -47,6 +47,9 @@ const Button = styled.button`
         color: black;
         background-color: whitesmoke;
     }
+    &:disabled {
+        background-color: grey;
+    }
 `;
 
 const Input = styled.input`

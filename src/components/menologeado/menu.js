@@ -8,6 +8,7 @@ import './menu.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GoGear } from 'react-icons/go';
 import { IconContext } from 'react-icons';
+import Blog from '../modal/Blog';
 
 function Menu() {
     const [sidebar, setSidebar] = useState(false);
@@ -24,9 +25,9 @@ function Menu() {
                             onClick={showSidebar}
                         />
                     </Link>
-                    <img className="searchIcon" src="" alt="search-icon" />
-                    <span className="searchText">Search</span>
+
                     <h1>A GUÍA DO CAMIÑO</h1>
+                    <Blog />
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu-items" onClick={showSidebar}>

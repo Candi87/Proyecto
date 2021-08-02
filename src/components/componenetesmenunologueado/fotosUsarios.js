@@ -8,59 +8,115 @@ function FotosUsuarios() {
             <div className="carrusel-fotos-perfil">
                 <HorizontalScroll>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                     <div className="fotoperfil-container">
-                        <img src={fotoperfil} className="fotoperfil"></img>
+                        <img
+                            src={fotoperfil}
+                            className="fotoperfil"
+                            alt="fotos-wall"
+                        />
                         <p>username</p>
                     </div>
                 </HorizontalScroll>

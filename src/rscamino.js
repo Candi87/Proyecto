@@ -9,8 +9,9 @@ import ValidateUser from './pages/validateUsuario/validate';
 import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
 import Home from './pages/principal/Home';
-import Menu from './components/menologeado/menu';
+
 import MenuNotLogued from './pages/notloguedpage/notloguedpage';
+import LoguedMenu from './pages/loguedpague/loguedpage';
 
 function Rscamino() {
     return (
@@ -37,12 +38,11 @@ function Rscamino() {
                         <Route path={'/usuarios/notlogued'}>
                             <MenuNotLogued />
                         </Route>
-
+                        <Route path={'/loguedmenu'}>
+                            <LoguedMenu />
+                        </Route>
                         <Route exact path={'/'}>
                             <Home />
-                        </Route>
-                        <Route path={'/menulogued'}>
-                            <Menu />
                         </Route>
                     </Switch>
                 </div>

@@ -32,7 +32,7 @@ function Login() {
             if (!response.ok) {
                 setError(data.message);
             } else {
-                history.push('/menulogued');
+                history.push('/loguedmenu');
             }
         }
         performLogin();

@@ -1,0 +1,156 @@
+.modal {
+    position: absolute;
+    right: 110%;
+}
+.is-active {
+    background: rgba(0, 0, 0, 0.9);
+
+    color: #fff;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    height: 100vh;
+
+    width: 100vw;
+
+    transition: all 0.5s;
+}
+
+.is-active > div {
+    width: 40%;
+    height: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/*Form del div que contiene todos los inputs y boton*/
+.uploadimage_form {
+    color: white;
+    text-align: left;
+    margin: 0;
+    padding: 20px;
+    vertical-align: top;
+    width: 100%;
+}
+.divcentralcrop {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.canvas {
+    position: absolute;
+    right: 11000%;
+}
+/*titulos inputs*/
+.uploadimage_description {
+    color: black;
+    font-style: oblique;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    width: 100%;
+}
+.uploadimage_form_title {
+    color: black;
+}
+/*Label del error*/
+.uploadimage_error_label {
+    color: rgba(122, 5, 5, 0.89);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+/*Boton con accion de Upload*/
+.uploadimage_button_send {
+    border: none;
+    padding: 10px 30px;
+    height: 40px;
+    background-color: black;
+    color: #f9f9f9;
+    position: absolute;
+    bottom: 5%;
+}
+.uploadimage_button_send:hover {
+    border: none;
+    padding: 10px 30px;
+    background-color: #f9f9f9;
+    color: black;
+    text-decoration: underline black 1px;
+    border: 1px solid black;
+}
+/*Botón con acción cerrar modal*/
+.uploadimage_closebutton {
+    width: 50px;
+    height: 50px;
+    border: none;
+    color: black;
+    vertical-align: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+}
+.uploadimage_closebutton:hover {
+    font-size: 40px;
+}
+
+/*Main container*/
+.uploadimage_div {
+    display: inline-flex;
+    border: 3px solid #000000;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    border: 10px BLACK solid;
+    box-shadow: grey 3px 3px;
+    margin: 0;
+    width: 100%;
+}
+.uploadimage_div:hover {
+    box-shadow: lightblue;
+}
+.uploadimage_button_selectfile {
+    margin-top: 15px;
+    color: black;
+}
+.uploadimage_form input[type='text' i] {
+    color: black;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.MdAddAPhoto {
+    margin-left: 50px;
+    font-size: 40px;
+}
+
+/*canvas*/
+.ReactCrop {
+    max-width: 60%;
+}
+.MdAddAPhoto > *:hover {
+    animation: cameramotion 2s steps(40, end), blink-caret 0.075s step-end;
+    animation-iteration-count: infinite;
+}
+@keyframes cameramotion {
+    25% {
+        color: BLACK;
+    }
+    100% {
+        color: #f9f9f9;
+    }
+}

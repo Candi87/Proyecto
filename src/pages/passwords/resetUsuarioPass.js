@@ -15,11 +15,11 @@ function ResetUsuarioPass() {
 
     function onSubmitResetUsuarioPass(event) {
         event.preventDefault();
-        // const error = validateResetUsuariosPass(recoverCode);
-        // if (error) {
-        //     setError(error);
-        //     return;
-        // }
+        const error = validateResetUsuariosPass(recoverCode);
+        if (error) {
+            setError(error);
+            return;
+        }
         async function resetUsuarioPassConfirm() {
             const response = await fetch(
                 'http://localhost:4000/usuarios/password/reset',

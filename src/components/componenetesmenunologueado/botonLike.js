@@ -1,4 +1,5 @@
 import { AiOutlineLike } from 'react-icons/ai';
+import './button.css';
 
 function Button({ id, children, onClick }) {
     return (
