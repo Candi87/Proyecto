@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input, Button, P1, FormLogin } from '../../estilos/estilos';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 function Login() {
     const history = useHistory();
@@ -28,11 +28,17 @@ function Login() {
                 }
             );
 
-            const data = response.json();
+            const data = await response.json();
+            const idUsuario = data.data.idUsuario;
+
+            console.log(data);
+
             if (!response.ok) {
                 setError(data.message);
             } else {
-                history.push('/loguedmenu');
+                sessionStorage.setItem('token', data.data.token);
+
+                history.push(`/usuarios/${idUsuario}`);
             }
         }
         performLogin();

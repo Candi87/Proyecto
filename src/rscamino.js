@@ -1,5 +1,6 @@
 import './rscamino.css';
 
+import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import RegisterForm from './pages/registro/register-form';
@@ -38,7 +39,7 @@ function Rscamino() {
                         <Route path={'/usuarios/notlogued'}>
                             <MenuNotLogued />
                         </Route>
-                        <Route path={'/loguedmenu'}>
+                        <Route path={'/usuarios/:idUsuario'}>
                             <LoguedMenu />
                         </Route>
                         <Route exact path={'/'}>

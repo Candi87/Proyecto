@@ -17,6 +17,8 @@ const UploadImage = ({ handleClose }) => {
     const password = 'prueba1';
     const token = '';
     */
+    let { idUsuario } = useParams();
+    let token = sessionStorage.getItem('token');
     const [file, setFile] = useState();
     const [description, setDescription] = useState();
     const [error, setError] = useState();
@@ -57,15 +59,15 @@ const UploadImage = ({ handleClose }) => {
 
                 let data = new FormData();
                 data.append('description', description);
-                data.append('idUsuario', '12');
+
                 data.append('photo', savedPhoto);
 
                 const response = await axios.post(
-                    `http://localhost:4000/usuarios/12/photos`,
+                    `http://localhost:4000/usuarios/${idUsuario}/photos`,
                     data,
                     {
                         headers: {
-                            authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzdWFyaW8iOjEyLCJpYXQiOjE2Mjc1NTMyMTMsImV4cCI6MTYzMjczNzIxM30.YcmNRShk3yKBWWwIdRO4O9DzNdUIBMs9-awGVuwgEfI`,
+                            authorization: token,
                             'Content-Type': 'multipart/form-data',
                         },
                     }
