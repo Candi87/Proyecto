@@ -14,6 +14,8 @@ import Home from './pages/principal/Home';
 import MenuNotLogued from './pages/notloguedpage/notloguedpage';
 import LoguedMenu from './pages/loguedpague/loguedpage';
 
+// sessionStorage.setItem('token', data.data.token);
+
 function Rscamino() {
     return (
         <ErrorBoundary>

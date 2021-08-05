@@ -3,7 +3,8 @@ import Imagen from '../../assets/camino1.jpg';
 import './fotosUsuarios.css';
 import { useState } from 'react';
 import { Button } from './botonLike';
-import Comentario from '../comentario/Comentario';
+
+import GetPhotoWall from '../getphotoswall/getphotowall';
 
 function FotosMuro() {
     const [like, setLike] = useState(false);
@@ -21,24 +22,11 @@ function FotosMuro() {
 
     return (
         <div>
-            <div className="grid-last-photos">
-                <ol>
-                    <li className="cardimg">
-                        <img src={Imagen}></img>
-                        <div className="like-container">
-                            <Button onClick={darLike}></Button>
-                            <p className="likes-number">{countLike} </p>
-                        </div>
-                        <Comentario />
-                    </li>
-                    <li className="cardimg">
-                        <img src={Imagen}></img>
-                    </li>
-                    <li className="cardimg">
-                        <img src={Imagen}></img>
-                    </li>
-                </ol>
-            </div>
+            <GetPhotoWall />
+            {/* <div className="like-container">
+                        <Button onClick={darLike}></Button>
+                        <p className="likes-number">{countLike} </p>
+                    </div> */}
         </div>
     );
 }
