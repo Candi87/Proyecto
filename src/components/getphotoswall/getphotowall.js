@@ -14,7 +14,9 @@ function GetPhotoWall() {
             }
         );
         const data = await response.json();
+        const photo = data.data.id;
         setImages(data.data);
+        console.log(data);
     }
     useEffect(() => {
         showPhotosWall();
@@ -23,7 +25,19 @@ function GetPhotoWall() {
     return (
         <div>
             {images.map((image) => (
-                <ImgRow key={image.url} image={image} />
+                <div>
+                    <div id={image.id} class="modalmask">
+                        <div class="modalbox movedown">
+                            <a href="#close" title="Close" class="close">
+                                X
+                            </a>
+                            <h2>{image.descripcion}</h2>
+                            <p>{image.fechasubida}</p>
+                            <img src={image.url} alt={image.id} />
+                        </div>
+                    </div>
+                    <ImgRow key={image.url} image={image} value={image.id} />
+                </div>
             ))}
         </div>
     );
