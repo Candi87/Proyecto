@@ -65,6 +65,8 @@ const UploadImage = ({ handleClose }) => {
                         },
                     }
                 );
+                const idImagen = response.data.data.id;
+                console.log(idImagen);
             } catch (error) {
                 setError('Error subiendo el fichero');
             }

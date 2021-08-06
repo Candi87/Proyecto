@@ -21,14 +21,10 @@ function GetPhotoWall() {
     }, []);
 
     return (
-        <div className="grid-last-photos">
-            <ol>
-                <li>
-                    {images.map((image) => (
-                        <ImgRow key={image.url} image={image} />
-                    ))}
-                </li>
-            </ol>
+        <div>
+            {images.map((image) => (
+                <ImgRow key={image.url} image={image} />
+            ))}
         </div>
     );
 }

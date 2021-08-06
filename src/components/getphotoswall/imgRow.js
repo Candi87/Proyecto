@@ -21,15 +21,7 @@ function ImgRow({ image }) {
 
     return (
         <div>
-            <ol>
-                <li>
-                    <img
-                        className="imagesWall"
-                        src={imgUrl}
-                        alt={image.descripcion}
-                    />
-                </li>
-            </ol>
+            <img className="imagesWall" src={imgUrl} alt={image.descripcion} />
         </div>
     );
 }

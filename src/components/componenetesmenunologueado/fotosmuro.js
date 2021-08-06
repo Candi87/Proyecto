@@ -21,7 +21,7 @@ function FotosMuro() {
     }
 
     return (
-        <div>
+        <div className="grid-last-photos-container">
             <GetPhotoWall />
             {/* <div className="like-container">
                         <Button onClick={darLike}></Button>
