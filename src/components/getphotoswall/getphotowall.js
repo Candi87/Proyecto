@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import ImgRow from './imgRow';
 import './getPhoto.css';
+import Comment from '../comments/comments';
 
 function GetPhotoWall() {
     const [images, setImages] = useState([]);
@@ -14,7 +15,7 @@ function GetPhotoWall() {
             }
         );
         const data = await response.json();
-        const photo = data.data.id;
+
         setImages(data.data);
         console.log(data);
     }
@@ -23,19 +24,26 @@ function GetPhotoWall() {
     }, []);
 
     return (
-        <div>
+        <div className="photos">
             {images.map((image) => (
                 <div>
-                    <div id={image.id} class="modalmask">
+                    <div id={image.id} class="modalmask ">
                         <div class="modalbox movedown">
                             <a href="#close" title="Close" class="close">
                                 X
                             </a>
                             <h2>{image.descripcion}</h2>
                             <p>{image.fechasubida}</p>
-                            <img src={image.url} alt={image.id} />
+                            <img
+                                className="photosmodal"
+                                src={image.url}
+                                alt={image.id}
+                            />
+
+                            <Comment />
                         </div>
                     </div>
+
                     <ImgRow key={image.url} image={image} value={image.id} />
                 </div>
             ))}

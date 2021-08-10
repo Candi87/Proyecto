@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 function ImgRow({ image }) {
-    let { idUsuario } = useParams();
-
     const [imageInfo, setImageInfo] = useState({});
 
     async function getImage(url) {
@@ -20,9 +17,10 @@ function ImgRow({ image }) {
             getImage(image.url);
         }
     }, [image]);
-
+    // '/usuarios/:idUsuario/photos/:idImagen/comment'
     const imgUrl = image.url;
     const idPhoto = '#' + image.id;
+
     return (
         <div>
             <a href={idPhoto}>

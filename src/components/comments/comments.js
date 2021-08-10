@@ -1,27 +1,28 @@
-// lo que necesito para el comentario del backend
-// const { comentario } = req.body;
-// const { idUsuario, idImagen } = req.params;
-
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { IoIosSend } from 'react-icons/io';
+import GetCommentsList from './CommentList';
 
-// if (
-//     !req.authEntity.idUsuario ||
-//     req.authEntity.idUsuario !== Number(idUsuario)//token!!
+function Comment() {
+    const [comentario, setComments] = useState('');
+    const [addComment, setAddComment] = useState('');
 
-function Comment(event) {
-    const [comments, setComments] = useState('');
     let token = sessionStorage.getItem('token');
+
     let { idUsuario } = useParams();
-    let { idImagen } = useParams();
+
+    const splitUrl = window.location.href.split('#');
+    let idPhoto;
+    if (splitUrl[1] !== 'close') {
+        idPhoto = splitUrl[1];
+    }
 
     function onSubmitComments(event) {
         event.preventDefault();
-        const comments = event.target.value;
-        setComments(comments);
 
         async function performComment() {
             const response = await fetch(
-                `http://localhost:4000/usuarios/${idUsuario}/photos/${idImagen}/comment`,
+                `http://localhost:4000/usuarios/${idUsuario}/photos/${idPhoto}/comment`,
                 {
                     method: 'POST',
 
@@ -37,8 +38,33 @@ function Comment(event) {
                 }
             );
             const data = await response.json();
+            console.log(data);
         }
+        setComments('');
+        performComment();
     }
-    return;
+
+    return (
+        <div>
+            <form onSubmit={onSubmitComments}>
+                <input
+                    className="input-comments"
+                    type="text"
+                    placeholder="Aquí podrás comentar las fotos que más te gusten"
+                    value={comentario}
+                    onChange={(event) => setComments(event.target.value)}
+                ></input>
+                <button
+                    type="submit"
+                    onClick={() => setAddComment(!addComment)}
+                    disabled={comentario ? '' : 'comments'}
+                >
+                    <IoIosSend />
+                </button>
+                {addComment && <GetCommentsList comentario={comentario} />}
+            </form>
+        </div>
+    );
 }
+
 export default Comment;

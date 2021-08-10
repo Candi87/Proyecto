@@ -1,5 +1,3 @@
-import Imagen from '../../assets/camino1.jpg';
-
 import './fotosUsuarios.css';
 import { useState } from 'react';
 import { Button } from './botonLike';
@@ -22,7 +20,8 @@ function FotosMuro() {
 
     return (
         <div className="grid-last-photos-container">
-            <GetPhotoWall />
+            <GetPhotoWall className="photos" />
+
             {/* <div className="like-container">
                         <Button onClick={darLike}></Button>
                         <p className="likes-number">{countLike} </p>

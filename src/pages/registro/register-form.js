@@ -31,7 +31,7 @@ function RegisterForm() {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [nickname, setNickName] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
-    const [error, setError] = useState('');
+    const [, setError] = useState('');
 
     function onSubmitRegister(event) {
         event.preventDefault();

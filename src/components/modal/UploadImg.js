@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ImWarning } from 'react-icons/im';
 import { useCallback, useRef, useEffect } from 'react';
 import ReactCrop from 'react-image-crop';

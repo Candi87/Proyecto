@@ -42,10 +42,13 @@ p {
     margin-top: 100px;
 }
 
-.grid-last-photos-container div {
+.grid-last-photos-container .photos {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     flex-direction: row;
+}
+.photos {
+    text-align: center;
 }
