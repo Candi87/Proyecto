@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 
 function GetCommentsList() {
-    const [comments, setComments] = useState([]);
+    let [comments, setComments] = useState([]);
 
     const splitUrl = window.location.href.split('#');
     let idPhoto;
@@ -19,9 +19,7 @@ function GetCommentsList() {
         );
         const data = await response.json();
 
-        setComments(data.data);
-
-        console.log(data.data);
+        comments = data.data;
     }
 
     useEffect(() => {
@@ -32,7 +30,9 @@ function GetCommentsList() {
         <div>
             {comments.map((comment) => (
                 <div className="comment-container">
-                    <p key={comments.id}>{comment.comentario}</p>
+                    <p key={comments.id} comments={comments}>
+                        {comment.comentario}
+                    </p>
                 </div>
             ))}
         </div>
@@ -40,11 +40,3 @@ function GetCommentsList() {
 }
 
 export default GetCommentsList;
-
-// http://localhost:4000/usuarios/photos/comments?idImagen=1
-
-// handleClick = () => {
-//   const urlSplit = URL.split('#')
-//   if(urlSplit[1] !== 'close') {
-//      showComments()
-//      setComments(URL)}

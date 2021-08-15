@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Modal } from 'bloomer';
 import UploadImage from './UploadImg';
 import './modal.css';
-const CustomModal = ({ isActive, handleClose }) => {
+const CustomModal = ({ isActive, handleClose, image }) => {
     console.log(isActive);
     return (
         <Modal isActive={isActive}>
             <div className="uploadimage_div">
-                <UploadImage handleClose={handleClose} />
+                <UploadImage handleClose={handleClose} image={image} />
                 <button
                     className="uploadimage_closebutton"
                     onClick={handleClose}

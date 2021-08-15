@@ -12,6 +12,8 @@ import Home from './pages/principal/Home';
 
 import MenuNotLogued from './pages/notloguedpage/notloguedpage';
 import LoguedMenu from './pages/loguedpague/loguedpage';
+import Search from './components/search/Search';
+import Wall from './components/Wall/Wall';
 
 // sessionStorage.setItem('token', data.data.token);
 
@@ -40,9 +42,16 @@ function Rscamino() {
                         <Route path={'/usuarios/notlogued'}>
                             <MenuNotLogued />
                         </Route>
-                        <Route path={'/usuarios/:idUsuario'}>
+                        <Route exact path={'/usuarios/:idUsuario/photos/:id'}>
+                            <Wall />
+                        </Route>
+                        <Route path={'/usuarios/tendencias'}>
                             <LoguedMenu />
                         </Route>
+                        <Route path={'/search/'}>
+                            <Search />
+                        </Route>
+
                         <Route exact path={'/'}>
                             <Home />
                         </Route>

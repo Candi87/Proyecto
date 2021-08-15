@@ -5,7 +5,7 @@ import GetCommentsList from './CommentList';
 
 function Comment() {
     const [comentario, setComments] = useState('');
-    const [addComment, setAddComment] = useState('');
+    let [addComment, setAddComment] = useState({ comentario });
 
     let token = sessionStorage.getItem('token');
 
@@ -38,7 +38,7 @@ function Comment() {
                 }
             );
             const data = await response.json();
-            console.log(data);
+            addComment = data.comment;
         }
         setComments('');
         performComment();
@@ -56,12 +56,12 @@ function Comment() {
                 ></input>
                 <button
                     type="submit"
-                    onClick={() => setAddComment(!addComment)}
+                    onClick={() => setAddComment(addComment)}
                     disabled={comentario ? '' : 'comments'}
                 >
                     <IoIosSend />
                 </button>
-                {addComment && <GetCommentsList comentario={comentario} />}
+                <GetCommentsList comentario={comentario} />
             </form>
         </div>
     );

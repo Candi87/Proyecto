@@ -5,6 +5,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { MdAddAPhoto } from 'react-icons/md';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import { FiUnlock } from 'react-icons/fi';
+import { BsSearch } from 'react-icons/bs';
 
 export const SidebarData = [
     {
@@ -35,6 +36,12 @@ export const SidebarData = [
         title: 'Logout',
         path: '/login',
         icon: <RiLogoutBoxLine />,
+        cName: 'nav-text',
+    },
+    {
+        title: 'Buscar',
+        path: '/search',
+        icon: <BsSearch />,
         cName: 'nav-text',
     },
 ];
