@@ -38,7 +38,8 @@ function Login() {
             } else {
                 sessionStorage.setItem('token', data.data.token);
 
-                history.push(`/usuarios/${idUsuario}`);
+                history.push(`/usuarios/tendencias
+                `);
             }
         }
         performLogin();

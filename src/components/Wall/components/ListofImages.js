@@ -2,7 +2,7 @@ import Image from './Image';
 import { useEffect, useState } from 'react';
 import getImage from '../services/getImage';
 
-export default function ListOfImages({ keyword = '' }) {
+function ListOfImages({ keyword = '' }) {
     const [search, setSearch] = useState([]);
 
     useEffect(
@@ -16,13 +16,17 @@ export default function ListOfImages({ keyword = '' }) {
     );
     return search.map((singleImage) => (
         // No usamos el [...singleImage] para identificar que parámetros se envían
-        <Image
-            key={singleImage.id}
-            id={singleImage.id}
-            idUsuario={singleImage.idUsuario}
-            descripcion={singleImage.descripcion}
-            url={singleImage.url}
-            likes={singleImage.likes}
-        />
+
+        <div className="listofimages">
+            <Image
+                key={singleImage.id}
+                id={singleImage.id}
+                idUsuario={singleImage.idUsuario}
+                descripcion={singleImage.descripcion}
+                url={singleImage.url}
+                likes={singleImage.likes}
+            />
+        </div>
     ));
 }
+export default ListOfImages;

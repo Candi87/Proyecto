@@ -63,22 +63,22 @@ function Wall() {
     return (
         <div>
             <Menu />
-            <div className='showsearch-container'>
+            <div className="showsearch-container">
                 <ListOfImages keyword={keyword} />
             </div>
-            <div className='showsearch-container'>
+            <div className="showsearch-container">
                 <ListOfComments search={search} />
 
                 <form onSubmit={onSubmitComments}>
                     <input
-                        className='input-comments'
-                        type='text'
-                        placeholder='Aquí podrás comentar las fotos que más te gusten'
+                        className="input-comments"
+                        type="text"
+                        placeholder="Aquí podrás comentar las fotos que más te gusten"
                         value={comentario}
                         onChange={(event) => setComments(event.target.value)}
                     ></input>
                     <button
-                        type='submit'
+                        type="submit"
                         onClick={() => setAddComment(!addComment)}
                         disabled={comentario ? '' : 'comments'}
                     ></button>
@@ -88,44 +88,3 @@ function Wall() {
     );
 }
 export default Wall;
-
-// import './wall.css';
-// import ListOfImages from './components/ListofImages';
-// import { useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import Menu from '../../components/menologeado/menu.js';
-// import ListOfComments from './components/ListOfComments';
-// import PostComment from './services/PostComment';
-// import { useEffect } from 'react';
-// import getComment from './services/getComment';
-
-// function Wall() {
-//     const { id } = useParams();
-//     const keyword = id;
-//     const [search, setSearch] = useState([]);
-
-//     useEffect(
-//         function () {
-//             //Llamamos al fetch y seteamos los resultados en pase al keyword
-//             getComment({ keyword }).then((results) => {
-//                 setSearch(results);
-//             });
-//         },
-
-//         []
-//     );
-
-//     return (
-//         <div>
-//             <Menu />
-//             <div className='showsearch-container'>
-//                 <ListOfImages keyword={keyword} />
-//             </div>
-//             <div className='showsearch-container'>
-//                 <ListOfComments search={search} />
-//                 <PostComment />
-//             </div>
-//         </div>
-//     );
-// }
-// export default Wall;
