@@ -15,6 +15,8 @@ export default async function getResults({ keyword }) {
                         image.idUsuario === Number(keyword)
                     ) {
                         return image;
+                    } else {
+                        return image;
                     }
                 });
                 return newImages;

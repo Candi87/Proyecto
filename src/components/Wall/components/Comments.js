@@ -1,15 +1,11 @@
-export default function Image({
-    id,
-    idImagen,
-    fechaCreacion,
-    comentario,
-    idUsuario,
-}) {
+function Comments({ id, idImagen, fechaCreacion, comentario, idUsuario }) {
     return (
         <div key={id}>
-            <p>ID Usuario: {idUsuario}</p>
-            <p>Comentario: {comentario}</p>
-            <p>Fecha: {fechaCreacion}</p>
+            {/* <p>ID Usuario: {idUsuario}</p> */}
+            <p> {comentario}</p>
+            {/* <p>Fecha: {fechaCreacion}</p> */}
         </div>
     );
 }
+
+export default Comments;

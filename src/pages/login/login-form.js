@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Input, Button, P1, FormLogin } from '../../estilos/estilos';
 import { useHistory } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ function Login() {
             } else {
                 sessionStorage.setItem('token', data.data.token);
 
-                history.push(`/usuarios/tendencias
+                history.push(`/usuarios/${idUsuario}/tendencias
                 `);
             }
         }

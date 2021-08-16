@@ -1,4 +1,4 @@
-export default async function getImage({ keyword }) {
+async function getImage({ keyword }) {
     return await fetch(`http://localhost:4000/usuarios/photos/all`)
         .then((res) => res.json())
         .then((response) => {
@@ -22,3 +22,5 @@ export default async function getImage({ keyword }) {
             }
         });
 }
+
+export default getImage;

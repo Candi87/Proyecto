@@ -45,7 +45,7 @@ const UploadImage = ({ handleClose }) => {
                     .then((res) => res.blob())
                     .then((blob) => {
                         const newimg = new File([blob], 'File name', {
-                            type: 'image/png',
+                            type: 'image/jpeg',
                         });
                         return newimg;
                     });

@@ -45,7 +45,7 @@ function Rscamino() {
                         <Route exact path={'/usuarios/:idUsuario/photos/:id'}>
                             <Wall />
                         </Route>
-                        <Route path={'/usuarios/tendencias'}>
+                        <Route path={'/usuarios/:idUsuario/tendencias'}>
                             <LoguedMenu />
                         </Route>
                         <Route path={'/search/'}>

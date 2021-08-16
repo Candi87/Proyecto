@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Menu from '../../components/menologeado/menu.js';
 import ListOfComments from './components/ListOfComments';
-import PostComment from './services/PostComment';
+
 import { useEffect } from 'react';
 import getComment from './services/getComment';
+import { IoIosSend } from 'react-icons/io';
 
 function Wall() {
     const { id } = useParams();
@@ -67,8 +68,6 @@ function Wall() {
                 <ListOfImages keyword={keyword} />
             </div>
             <div className="showsearch-container">
-                <ListOfComments search={search} />
-
                 <form onSubmit={onSubmitComments}>
                     <input
                         className="input-comments"
@@ -79,10 +78,13 @@ function Wall() {
                     ></input>
                     <button
                         type="submit"
-                        onClick={() => setAddComment(!addComment)}
+                        onClick={() => setAddComment(addComment)}
                         disabled={comentario ? '' : 'comments'}
-                    ></button>
+                    >
+                        <IoIosSend />
+                    </button>
                 </form>
+                <ListOfComments search={search} />
             </div>
         </div>
     );

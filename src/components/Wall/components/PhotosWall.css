@@ -1,0 +1,15 @@
+.list-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 100px;
+    gap: 15px;
+    margin-left: 300px;
+    margin-right: 300px;
+    align-items: center;
+}
+
+.list-img-container a img {
+    width: 300px;
+    height: 300px;
+}

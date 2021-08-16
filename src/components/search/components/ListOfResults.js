@@ -1,8 +1,9 @@
 import Result from './Result';
 import { useEffect, useState } from 'react';
 import getResults from '../services/getResults';
+import Image from '../../Wall/components/Image';
 
-export default function ListOfResults({ keyword = '' }) {
+function ListOfResults({ keyword = '' }) {
     const [search, setSearch] = useState([]);
 
     useEffect(
@@ -26,3 +27,4 @@ export default function ListOfResults({ keyword = '' }) {
         />
     ));
 }
+export default ListOfResults;

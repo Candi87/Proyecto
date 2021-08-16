@@ -1,6 +1,6 @@
 import Menu from '../../components/menologeado/menu.js';
 import FotosUsuarios from '../../components/componenetesmenunologueado/fotosUsarios';
-import GetPhotosWall from '../../components/getphotoswall/getphotowall.js';
+import GetPhotosWall from '../../components/Wall/components/GetPhotosWall.js';
 
 function LoguedMenu() {
     return (

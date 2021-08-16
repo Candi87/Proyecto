@@ -1,18 +1,12 @@
 .Result {
-    border: 1px solid black;
-    border-radius: 6px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+
     flex-wrap: wrap;
-    width: 400px;
-    height: 400px;
-    margin: 16px;
-    padding: 32px;
+
     justify-content: center;
 }
-.Result:hover {
-    background-color: grey;
-}
+
 .Result p {
     margin: 1px;
     text-decoration: none;
@@ -23,8 +17,6 @@
     width: 200px;
 }
 .showsearch-container {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     margin: 200px;
 }

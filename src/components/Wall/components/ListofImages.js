@@ -5,15 +5,13 @@ import getImage from '../services/getImage';
 function ListOfImages({ keyword = '' }) {
     const [search, setSearch] = useState([]);
 
-    useEffect(
-        function () {
-            //Llamamos al fetch y seteamos los resultados en pase al keyword
-            getImage({ keyword }).then((results) => {
-                setSearch(results);
-            });
-        },
-        [keyword]
-    );
+    useEffect(function () {
+        //Llamamos al fetch y seteamos los resultados en pase al keyword
+        getImage({ keyword }).then((results) => {
+            setSearch(results);
+        });
+    }, []);
+
     return search.map((singleImage) => (
         // No usamos el [...singleImage] para identificar que parámetros se envían
 
