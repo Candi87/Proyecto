@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Menu from '../../components/menologeado/menu.js';
 import ListOfComments from './components/ListOfComments';
-
+import Like from '../componenetesmenunologueado/Like';
 import { useEffect } from 'react';
 import getComment from './services/getComment';
 import { IoIosSend } from 'react-icons/io';
@@ -16,15 +16,14 @@ function Wall() {
 
     const [comentario, setComments] = useState('');
     let [addComment, setAddComment] = useState({ comentario });
-    let [step, setStep] = useState(0);
+    let [step, setStep] = useState(1);
 
     let token = sessionStorage.getItem('token');
-
-    let { idUsuario } = useParams();
+    let idUsuario = sessionStorage.getItem('idusuario');
 
     function onSubmitComments(event) {
         event.preventDefault();
-        setStep(step + 1);
+
         console.log('STEEEEEEEEEEEEEEEEEEEEEEEP:    ', step);
         async function performComment() {
             const response = await fetch(
@@ -45,6 +44,9 @@ function Wall() {
             );
             const data = await response.json();
             addComment = data.data;
+            if (response.ok) {
+                setStep(step + 1);
+            }
         }
         setComments('');
         performComment();
@@ -60,29 +62,30 @@ function Wall() {
 
         [keyword, step]
     );
-
     return (
         <div>
             <Menu />
             <div className="showsearch-container">
                 <ListOfImages keyword={keyword} />
             </div>
+            <Like />
             <div className="showsearch-container">
                 <form onSubmit={onSubmitComments}>
-                    <input
-                        className="input-comments"
-                        type="text"
-                        placeholder="Aquí podrás comentar las fotos que más te gusten"
-                        value={comentario}
-                        onChange={(event) => setComments(event.target.value)}
-                    ></input>
                     <button
                         type="submit"
-                        onClick={() => setAddComment(addComment)}
+                        onClick={() => setAddComment(!addComment)}
                         disabled={comentario ? '' : 'comments'}
                     >
                         <IoIosSend />
                     </button>
+
+                    <textarea
+                        className="textarea-comments"
+                        type="text"
+                        placeholder="Aquí podrás comentar las fotos que más te gusten"
+                        value={comentario}
+                        onChange={(event) => setComments(event.target.value)}
+                    ></textarea>
                 </form>
                 <ListOfComments search={search} />
             </div>

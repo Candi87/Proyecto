@@ -9,7 +9,7 @@ function Blog() {
         useModalWithData();
 
     return (
-        <div>
+        <div className="button-upload-img">
             <CustomModal
                 isActive={isModalOpened}
                 handleClose={() => setIsModalOpened(false)}

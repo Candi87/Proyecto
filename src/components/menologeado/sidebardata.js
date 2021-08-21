@@ -4,44 +4,42 @@ import { CgProfile } from 'react-icons/cg';
 import { HiOutlineMail } from 'react-icons/hi';
 import { MdAddAPhoto } from 'react-icons/md';
 import { RiLogoutBoxLine } from 'react-icons/ri';
-import { FiUnlock } from 'react-icons/fi';
+import { AiOutlineFire } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 
 export const SidebarData = [
     {
-        title: 'Editar Perfil',
-        path: '/',
+        title: 'Perfil',
+        path: '/perfil',
         icon: <CgProfile />,
         cName: 'nav-text',
     },
+
     {
-        title: 'Cambiar Contraseña',
-        path: '/',
-        icon: <FiUnlock />,
+        title: 'Buscar',
+        path: '/search',
+        icon: <BsSearch />,
         cName: 'nav-text',
     },
+
     {
-        title: 'Subir Foto',
-        path: '/',
-        icon: <MdAddAPhoto />,
+        title: 'Tendencias',
+        path: '/tendencias',
+        icon: <AiOutlineFire />,
         cName: 'nav-text',
     },
+
     {
         title: 'Contacto',
         path: '/',
         icon: <HiOutlineMail />,
         cName: 'nav-text',
     },
+
     {
         title: 'Logout',
         path: '/login',
         icon: <RiLogoutBoxLine />,
-        cName: 'nav-text',
-    },
-    {
-        title: 'Buscar',
-        path: '/search',
-        icon: <BsSearch />,
         cName: 'nav-text',
     },
 ];

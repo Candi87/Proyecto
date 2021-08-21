@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { SidebarDataNoLogueado } from './sidebardatanologueado';
 import './menunologueado.css';
 
-import { AiOutlineClose } from 'react-icons/ai';
-import { GoGear } from 'react-icons/go';
+import { RiMenuFoldFill } from 'react-icons/ri';
+import { RiMenuUnfoldFill } from 'react-icons/ri';
 import { IconContext } from 'react-icons';
 
 function MenuNoLogued() {
@@ -19,7 +19,7 @@ function MenuNoLogued() {
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className="navbar">
                     <Link to="#" className="menu-bars">
-                        <GoGear
+                        <RiMenuUnfoldFill
                             className="icono-opciones"
                             onClick={showSidebar}
                         />
@@ -31,7 +31,7 @@ function MenuNoLogued() {
                     <ul className="nav-menu-items" onClick={showSidebar}>
                         <li className="navbar-toggle">
                             <Link to="#" className="menu-bars">
-                                <AiOutlineClose className="icono-cerrar" />
+                                <RiMenuFoldFill className="icono-cerrar" />
                             </Link>
                         </li>
                         {SidebarDataNoLogueado.map((item, index) => {

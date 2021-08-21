@@ -8,12 +8,12 @@ function Image({ id, idUsuario, descripcion, url, likes }) {
                 <p className="description"> {descripcion}</p>
                 <img src={url} alt="Fotos Subidas Por Peregrinos" />
             </div>
-            <div>
+            {/* <div>
                 <p>ID Imagen: {id}</p>
                 <p>ID Usuario: {idUsuario}</p>
 
                 <p>Likes: {likes}</p>
-            </div>
+            </div> */}
         </div>
     );
 }

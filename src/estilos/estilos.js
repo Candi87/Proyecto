@@ -3,15 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const LinkLogin = styled.div`
     text-align: center;
+    padding-top: 10px;
 `;
 
 const P = styled.p`
     text-decoration: none;
-    color: blue;
+    color: white;
     display: inline-block;
-    text-align: center;
 
-    font-size: 14px;
+    font-size: 16px;
 
     &:hover {
         text-decoration: underline;
@@ -74,7 +74,7 @@ const GrupoInput = styled.div`
 const Error = styled.p`
     font-size: 10px;
     margin-bottom: 0;
-    color: #e62e1b;
+    color: red;
     position: relative;
     bottom: 14px;
     opacity: 0;
@@ -150,6 +150,11 @@ const PMenu = styled.p`
 const PTerminos = styled.p`
     font-size: 14px;
     text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    padding-bottom: 30px;
+    text-align: center;
 `;
 
 export {

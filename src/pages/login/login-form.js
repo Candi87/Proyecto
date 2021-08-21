@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Input, Button, P1, FormLogin } from '../../estilos/estilos';
 import { useHistory } from 'react-router-dom';
 
@@ -29,17 +29,17 @@ function Login() {
             );
 
             const data = await response.json();
-            const idUsuario = data.data.idUsuario;
 
             console.log(data);
 
             if (!response.ok) {
                 setError(data.message);
             } else {
+                const idUsuario = data.data.idUsuario;
+                sessionStorage.setItem('idusuario', data.data.idUsuario);
                 sessionStorage.setItem('token', data.data.token);
-
-                history.push(`/usuarios/${idUsuario}/tendencias
-                `);
+                console.log(idUsuario);
+                history.push('/tendencias');
             }
         }
         performLogin();

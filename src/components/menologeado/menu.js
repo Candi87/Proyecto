@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './sidebardata';
 import './menu.css';
 
-import { AiOutlineClose } from 'react-icons/ai';
-import { GoGear } from 'react-icons/go';
+import { RiMenuFoldFill } from 'react-icons/ri';
+import { RiMenuUnfoldFill } from 'react-icons/ri';
 import { IconContext } from 'react-icons';
 import Blog from '../modal/Blog';
 
@@ -20,20 +20,21 @@ function Menu() {
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className="navbar">
                     <Link to="#" className="menu-bars">
-                        <GoGear
+                        <RiMenuUnfoldFill
                             className="icono-opciones"
                             onClick={showSidebar}
                         />
                     </Link>
 
                     <h1>A GUÍA DO CAMIÑO</h1>
+
                     <Blog />
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu-items" onClick={showSidebar}>
                         <li className="navbar-toggle">
                             <Link to="#" className="menu-bars">
-                                <AiOutlineClose className="icono-cerrar" />
+                                <RiMenuFoldFill className="icono-cerrar" />
                             </Link>
                         </li>
                         {SidebarData.map((item, index) => {

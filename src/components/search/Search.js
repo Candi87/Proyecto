@@ -27,7 +27,7 @@ function Search() {
                     />
                 </form>
                 <p>Resultados encontrados para `{keyword}`</p>
-                <div className="showsearch-container">
+                <div>
                     <ListOfResults keyword={keyword} />
                 </div>
             </div>

@@ -1,4 +1,27 @@
-.prueba1 {
-    position: absolute;
-    top: 50%;
+.textarea-comments {
+    width: 960px;
+    padding: 16px;
+
+    text-align: left;
+    font-size: 20px;
+    border: none;
+
+    margin-top: 20px;
+    margin-left: 400px;
+    resize: none;
+    overflow: hidden;
+}
+
+.textarea-comments:focus {
+    outline: none;
+}
+.comment-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+.button-icon {
+    width: 40px;
+    height: 40px;
 }

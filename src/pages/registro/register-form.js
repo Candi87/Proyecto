@@ -31,8 +31,32 @@ function RegisterForm() {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [nickname, setNickName] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
-    const [, setError] = useState('');
-
+    const [error, setError] = useState([
+        {
+            field: 'name',
+            error: 'Introduce un Nombre',
+        },
+        {
+            field: 'email',
+            error: 'Introduce un email válido',
+        },
+        {
+            field: 'password',
+            error: 'Introduce una contraseña correcta',
+        },
+        {
+            field: 'repeatPassword',
+            error: 'Las contraseñas no coinciden',
+        },
+        {
+            field: 'nickname',
+            error: 'El nombre de Usuario ya está existe',
+        },
+        {
+            field: 'confirmEmail',
+            error: 'Los emails no coinciden',
+        },
+    ]);
     function onSubmitRegister(event) {
         event.preventDefault();
 
@@ -84,7 +108,6 @@ function RegisterForm() {
                                         placeholder="Ingrese su Nombre y Apellidos"
                                         leyendaError="El usuario tiene que ser min de 4 a 30 gígitos y sólo puede contener letras"
                                     />
-                                    <IconValidate icon={faCheckCircle} />
                                 </GrupoInput>
                                 <Error>Rellene este campo</Error>
                             </label>
@@ -97,7 +120,6 @@ function RegisterForm() {
                                     type="text"
                                     placeholder="Ingrese su email"
                                 />
-                                <IconValidate icon={faCheckCircle} />
                             </GrupoInput>
                             <Error>Error</Error>
                         </label>
@@ -111,7 +133,6 @@ function RegisterForm() {
                                     type="text"
                                     placeholder="Ingrese el Nombre de Usuario"
                                 />
-                                <IconValidate icon={faCheckCircle} />
                             </GrupoInput>
                             <Error>Error</Error>
                         </label>
@@ -125,7 +146,6 @@ function RegisterForm() {
                                     type="password"
                                     placeholder="Ingrese su Contraseña"
                                 />
-                                <IconValidate icon={faCheckCircle} />
                             </GrupoInput>
                             <Error>Error</Error>
                             <label className="datos-container">
@@ -140,7 +160,6 @@ function RegisterForm() {
                                         type="password"
                                         placeholder="Repita su Contraseña"
                                     />
-                                    <IconValidate icon={faCheckCircle} />
                                 </GrupoInput>
                                 <Error>Error</Error>
                             </label>
@@ -156,19 +175,6 @@ function RegisterForm() {
                                     <P>Ya tengo cuenta</P>
                                 </Link>
                             </LinkLogin>
-
-                            {false && (
-                                <MensajeError>
-                                    <ErrorForm>
-                                        <FontAwesomeIcon
-                                            icon={faExclamationTriangle}
-                                        />
-                                        <b> Error :</b> Por favor rellena el
-                                        formulario correctamente
-                                    </ErrorForm>
-                                </MensajeError>
-                            )}
-                            {confirmEmail && <div>{confirmEmail} </div>}
                         </label>
                     </Form>
                 </div>
@@ -177,3 +183,42 @@ function RegisterForm() {
     );
 }
 export default RegisterForm;
+
+// const [name, setName] = useState('');
+// const [email, setEmail] = useState('');
+// const [password, setPassword] = useState('');
+// const [repeatPassword, setRepeatPassword] = useState('');
+// const [nickname, setNickName] = useState('');
+// const [confirmEmail, setConfirmEmail] = useState('');
+function validateRegisterForm(
+    name,
+    password,
+    repeatedPassword,
+    nickname,
+    email
+) {
+    if (!name) {
+        return 'El campo Nombre y Apellido es obligatorio';
+    }
+    if (!email) {
+        return 'El campo Email es obligatorio';
+    }
+
+    if (!password) {
+        return 'El campo Contraseña es obligatorio';
+    }
+
+    if (!repeatedPassword) {
+        return 'El campo Repite Contraseña es obligatorio';
+    }
+
+    if (!nickname) {
+        return 'El campo Nombre de Usuario es obligatorio';
+    }
+
+    const isValidPassword = password === repeatedPassword;
+
+    if (!isValidPassword) {
+        return 'Las contraseñas deben coincidir';
+    }
+}

@@ -1,21 +1,34 @@
 import './rscamino.css';
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import RegisterForm from './pages/registro/register-form';
-import Login from './pages/login/login-form';
-import ResetPassword from './pages/passwords/resetPassword';
-import ValidateUser from './pages/validateUsuario/validate';
-import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
 import React from 'react';
-import Home from './pages/principal/Home';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+// import Header from './components/Header/Header';
+// import RegisterForm from './pages/registro/register-form';
+// import Login from './pages/login/login-form';
+// import ResetPassword from './pages/passwords/resetPassword';
+// import ValidateUser from './pages/validateUsuario/validate';
+// import ResetUsuarioPass from './pages/passwords/resetUsuarioPass';
+// import Home from './pages/principal/Home';
 
-import MenuNotLogued from './pages/notloguedpage/notloguedpage';
-import LoguedMenu from './pages/loguedpague/loguedpage';
-import Search from './components/search/Search';
-import Wall from './components/Wall/Wall';
+// import LoguedMenu from './pages/loguedpague/loguedpage';
+// import Search from './components/search/Search';
+// import Wall from './components/Wall/Wall';
+// import Profile from './pages/profile/Profile';
 
 // sessionStorage.setItem('token', data.data.token);
+
+const Login = lazy(() => import('./pages/login/login-form'));
+const RegisterForm = lazy(() => import('./pages/registro/register-form'));
+const ResetPassword = lazy(() => import('./pages/passwords/resetPassword'));
+const ValidateUser = lazy(() => import('./pages/validateUsuario/validate'));
+const ResetUsuarioPass = lazy(() =>
+    import('./pages/passwords/resetUsuarioPass')
+);
+const Home = lazy(() => import('./pages/principal/Home'));
+const Profile = lazy(() => import('./pages/profile/Profile'));
+const LoguedMenu = lazy(() => import('./pages/loguedpague/loguedpage'));
+const Search = lazy(() => import('./components/search/Search'));
+const Wall = lazy(() => import('./components/Wall/Wall'));
 
 function Rscamino() {
     return (
@@ -23,38 +36,44 @@ function Rscamino() {
             <Router>
                 <div className="App">
                     <Switch>
-                        <Route path={'/login'}>
-                            <Login />
-                        </Route>
-                        <Route path={'/register'}>
-                            <RegisterForm />
-                        </Route>
-                        <Route path={'/resetpassword'}>
-                            <ResetPassword />
-                        </Route>
+                        <Suspense fallback={<div>Cargando...</div>}>
+                            <Route path={'/login'}>
+                                <Login />
+                            </Route>
+                            <Route path={'/register'}>
+                                <RegisterForm />
+                            </Route>
+                            <Route path={'/resetpassword'}>
+                                <ResetPassword />
+                            </Route>
+                            <Route
+                                path={'/usuarios/validate/:registrationCode'}
+                            >
+                                <ValidateUser />
+                            </Route>
+                            <Route path={'/usuarios/password'}>
+                                <ResetUsuarioPass />
+                            </Route>
 
-                        <Route path={'/usuarios/validate/:registrationCode'}>
-                            <ValidateUser />
-                        </Route>
-                        <Route path={'/usuarios/password'}>
-                            <ResetUsuarioPass />
-                        </Route>
-                        <Route path={'/usuarios/notlogued'}>
-                            <MenuNotLogued />
-                        </Route>
-                        <Route exact path={'/usuarios/:idUsuario/photos/:id'}>
-                            <Wall />
-                        </Route>
-                        <Route path={'/usuarios/:idUsuario/tendencias'}>
-                            <LoguedMenu />
-                        </Route>
-                        <Route path={'/search/'}>
-                            <Search />
-                        </Route>
-
-                        <Route exact path={'/'}>
-                            <Home />
-                        </Route>
+                            <Route
+                                exact
+                                path={'/usuarios/:idUsuario/photos/:id'}
+                            >
+                                <Wall />
+                            </Route>
+                            <Route path={'/perfil'}>
+                                <Profile />
+                            </Route>
+                            <Route exact path={'/tendencias'}>
+                                <LoguedMenu />
+                            </Route>
+                            <Route path={'/search/'}>
+                                <Search />
+                            </Route>
+                            <Route exact path={'/'}>
+                                <Home />
+                            </Route>
+                        </Suspense>
                     </Switch>
                 </div>
             </Router>

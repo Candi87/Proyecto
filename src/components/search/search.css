@@ -16,10 +16,10 @@
     object-fit: contain;
     width: 200px;
 }
-.showsearch-container {
-    flex-wrap: wrap;
-    margin: 200px;
-}
+/* .showsearch-container {
+    max-width: 400px;
+    max-height: 400px;
+} */
 .searchpage form {
     text-align: center;
     vertical-align: center;

@@ -7,7 +7,7 @@ function GetPhotosWall() {
     const keyword = id;
 
     return (
-        <div className="list-img-container">
+        <div>
             <ListOfResults keyword={keyword} />
         </div>
     );
