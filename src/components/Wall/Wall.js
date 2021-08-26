@@ -68,10 +68,12 @@ function Wall() {
             <div className="showsearch-container">
                 <ListOfImages keyword={keyword} />
             </div>
-            <Like />
-            <div className="showsearch-container">
+            <div className="comments-container">
+                <Like />
+
                 <form onSubmit={onSubmitComments}>
                     <button
+                        className="comment-button"
                         type="submit"
                         onClick={() => setAddComment(!addComment)}
                         disabled={comentario ? '' : 'comments'}
@@ -87,6 +89,7 @@ function Wall() {
                         onChange={(event) => setComments(event.target.value)}
                     ></textarea>
                 </form>
+
                 <ListOfComments search={search} />
             </div>
         </div>

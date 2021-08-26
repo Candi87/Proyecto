@@ -7,7 +7,9 @@ function LoguedMenu({ keyword }) {
         <div>
             <Menu />
             <FotosUsuarios />
-            <ListOfResults keyword={keyword} />
+            <div className="trendings-photos">
+                <ListOfResults keyword={keyword} />
+            </div>
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import Result from './Result';
 import { useEffect, useState } from 'react';
 import getResults from '../services/getResults';
-import Image from '../../Wall/components/Image';
 
 function ListOfResults({ keyword = '' }) {
     const [search, setSearch] = useState([]);

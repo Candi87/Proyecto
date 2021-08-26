@@ -9,7 +9,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import './modal.css';
 
 const UploadImage = ({ handleClose }) => {
-    let { idUsuario } = useParams();
+    let idUsuario = sessionStorage.getItem('idusuario');
     let token = sessionStorage.getItem('token');
 
     const [file, setFile] = useState();

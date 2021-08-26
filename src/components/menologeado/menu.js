@@ -16,7 +16,7 @@ function Menu() {
     const showSidebar = () => setSidebar(!sidebar);
 
     return (
-        <>
+        <div>
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className="navbar">
                     <Link to="#" className="menu-bars">
@@ -30,6 +30,7 @@ function Menu() {
 
                     <Blog />
                 </div>
+
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu-items" onClick={showSidebar}>
                         <li className="navbar-toggle">
@@ -50,7 +51,7 @@ function Menu() {
                     </ul>
                 </nav>
             </IconContext.Provider>
-        </>
+        </div>
     );
 }
 

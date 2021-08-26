@@ -72,12 +72,9 @@ const GrupoInput = styled.div`
 `;
 
 const Error = styled.p`
-    font-size: 10px;
+    font-size: 14px;
     margin-bottom: 0;
-    color: red;
-    position: relative;
-    bottom: 14px;
-    opacity: 0;
+    color: #e31f11;
 `;
 
 const IconValidate = styled(FontAwesomeIcon)`

@@ -8,7 +8,7 @@ function Like() {
     let token = sessionStorage.getItem('token');
     let idUsuario = sessionStorage.getItem('idusuario');
 
-    const [totalLikes, setTotalLikes] = useState(0);
+    const [totalLikes, setTotalLikes] = useState('0');
     const [step, setStep] = useState(0);
 
     let { id } = useParams();
@@ -26,7 +26,7 @@ function Like() {
         );
         const data = await response.json();
         setStep(step + 1);
-        console.log(data.data);
+        console.log('numero total de likes', data.data);
     }
     useEffect(
         function () {
@@ -39,11 +39,9 @@ function Like() {
     );
 
     return (
-        <div>
-            <div className="like-container">
-                <Button onClick={darLike}></Button>
-                <p className="likes-number"> {totalLikes}</p>
-            </div>
+        <div className="like-container">
+            <Button onClick={darLike}></Button>
+            <p className="likes-number"> {totalLikes}</p>
         </div>
     );
 }

@@ -2,6 +2,8 @@ import './fotosUsuarios.css';
 import HorizontalScroll from 'react-scroll-horizontal';
 import fotoperfil from '../../assets/fotoperfil.jpg';
 
+import GetNickname from './services/GetNicknames';
+
 function FotosUsuarios() {
     return (
         <div>
@@ -13,7 +15,7 @@ function FotosUsuarios() {
                             className="fotoperfil"
                             alt="fotos-wall"
                         />
-                        <p>username</p>
+                        <GetNickname />
                     </div>
                     <div className="fotoperfil-container">
                         <img

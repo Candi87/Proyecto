@@ -18,6 +18,8 @@
     width: 100vw;
 
     transition: all 0.5s;
+
+    z-index: 1;
 }
 
 .is-active > div {

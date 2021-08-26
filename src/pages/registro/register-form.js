@@ -17,11 +17,6 @@ import {
 } from '../../estilos/estilos';
 import './register-form.css';
 
-import {
-    faCheckCircle,
-    faExclamationTriangle,
-} from '@fortawesome/free-solid-svg-icons';
-
 function RegisterForm() {
     const history = useHistory();
 
@@ -31,34 +26,39 @@ function RegisterForm() {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [nickname, setNickName] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
-    const [error, setError] = useState([
-        {
-            field: 'name',
-            error: 'Introduce un Nombre',
-        },
-        {
-            field: 'email',
-            error: 'Introduce un email válido',
-        },
-        {
-            field: 'password',
-            error: 'Introduce una contraseña correcta',
-        },
-        {
-            field: 'repeatPassword',
-            error: 'Las contraseñas no coinciden',
-        },
-        {
-            field: 'nickname',
-            error: 'El nombre de Usuario ya está existe',
-        },
-        {
-            field: 'confirmEmail',
-            error: 'Los emails no coinciden',
-        },
-    ]);
+    const [error, setError] = useState('');
+    const [errorName, setErrorName] = useState('');
+    const [errorMail, setErrorMail] = useState('');
+    const [errorPass, setErrorPassword] = useState('');
+    const [errorNick, setErrorNickname] = useState('');
+    const [failName, setFailName] = useState(false);
+    const [failMail, setFailMail] = useState(false);
+    const [failPassword, setFailPassword] = useState(false);
+    const [failNickname, setFailNickname] = useState(false);
+
     function onSubmitRegister(event) {
         event.preventDefault();
+
+        if (!name) {
+            setFailName(true);
+            setErrorName('Introduce un nombre válido');
+            return;
+        }
+        if (!email) {
+            setFailMail(true);
+            setErrorMail('Introduce un email válido');
+            return;
+        }
+        if (!password) {
+            setFailPassword(true);
+            setErrorPassword('Introduce una contraseña válido');
+            return;
+        }
+        if (!nickname) {
+            setFailNickname(true);
+            setErrorNickname('Introduce un nombre de usuario válido');
+            return;
+        }
 
         async function registerConfirm() {
             const response = await fetch('http://localhost:4000/usuarios/', {
@@ -92,7 +92,9 @@ function RegisterForm() {
             <div className="main_page_screens"></div>
             <div className="main_page_access">
                 <div className="main_page_access_titles">
-                    <h1 className="title_1">¡ Regístrate ya !</h1>
+                    <h1 className="title_1">
+                        Mejora tú experiencia registrándote
+                    </h1>
                 </div>
                 <div className="register-form">
                     <Form onSubmit={onSubmitRegister}>
@@ -106,10 +108,15 @@ function RegisterForm() {
                                         }
                                         type="text"
                                         placeholder="Ingrese su Nombre y Apellidos"
-                                        leyendaError="El usuario tiene que ser min de 4 a 30 gígitos y sólo puede contener letras"
                                     />
+                                    {failName ? (
+                                        <span className="error-register">
+                                            {errorName}
+                                        </span>
+                                    ) : (
+                                        <span></span>
+                                    )}
                                 </GrupoInput>
-                                <Error>Rellene este campo</Error>
                             </label>
                             <GrupoInput>
                                 <Input
@@ -120,8 +127,14 @@ function RegisterForm() {
                                     type="text"
                                     placeholder="Ingrese su email"
                                 />
+                                {failMail ? (
+                                    <span className="error-register">
+                                        {errorMail}
+                                    </span>
+                                ) : (
+                                    <span></span>
+                                )}
                             </GrupoInput>
-                            <Error>Error</Error>
                         </label>
                         <label className="datos-container">
                             <GrupoInput>
@@ -133,8 +146,14 @@ function RegisterForm() {
                                     type="text"
                                     placeholder="Ingrese el Nombre de Usuario"
                                 />
+                                {failNickname ? (
+                                    <span className="error-register">
+                                        {errorNick}
+                                    </span>
+                                ) : (
+                                    <span></span>
+                                )}
                             </GrupoInput>
-                            <Error>Error</Error>
                         </label>
                         <label className="datos-container">
                             <GrupoInput>
@@ -146,8 +165,15 @@ function RegisterForm() {
                                     type="password"
                                     placeholder="Ingrese su Contraseña"
                                 />
+                                {failPassword ? (
+                                    <span className="error-register">
+                                        {errorPass}
+                                    </span>
+                                ) : (
+                                    <span></span>
+                                )}
                             </GrupoInput>
-                            <Error>Error</Error>
+
                             <label className="datos-container">
                                 <GrupoInput>
                                     <Input
@@ -161,7 +187,6 @@ function RegisterForm() {
                                         placeholder="Repita su Contraseña"
                                     />
                                 </GrupoInput>
-                                <Error>Error</Error>
                             </label>
                             <div>
                                 <PTerminos className="terminos">
@@ -190,33 +215,12 @@ export default RegisterForm;
 // const [repeatPassword, setRepeatPassword] = useState('');
 // const [nickname, setNickName] = useState('');
 // const [confirmEmail, setConfirmEmail] = useState('');
-function validateRegisterForm(
-    name,
-    password,
-    repeatedPassword,
-    nickname,
-    email
-) {
-    if (!name) {
-        return 'El campo Nombre y Apellido es obligatorio';
-    }
-    if (!email) {
-        return 'El campo Email es obligatorio';
-    }
-
+function validateRegisterForm(password, repeatPassword) {
     if (!password) {
         return 'El campo Contraseña es obligatorio';
     }
 
-    if (!repeatedPassword) {
-        return 'El campo Repite Contraseña es obligatorio';
-    }
-
-    if (!nickname) {
-        return 'El campo Nombre de Usuario es obligatorio';
-    }
-
-    const isValidPassword = password === repeatedPassword;
+    const isValidPassword = password === repeatPassword;
 
     if (!isValidPassword) {
         return 'Las contraseñas deben coincidir';
