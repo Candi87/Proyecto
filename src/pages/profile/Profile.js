@@ -78,7 +78,7 @@ function Profile() {
                     >
                         <MdAddAPhoto />
                     </button>
-                    <ShowNickname className={' email'} />
+                    <ShowNickname className={'email'} />
 
                     <Modal
                         className="color"
