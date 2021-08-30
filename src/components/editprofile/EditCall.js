@@ -8,7 +8,7 @@ import imagennoperfil from '../../assets/imagennoperfil.png';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
 function EditCall({ handleClose, userInfo }) {
-    const { idUsuario } = useParams();
+    const idUsuario = sessionStorage.getItem('idusuario');
     const tokenInfo = sessionStorage.getItem('token');
 
     if (document.getElementById('btnModal')) {

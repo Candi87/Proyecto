@@ -7,10 +7,12 @@ import { RiLogoutBoxLine } from 'react-icons/ri';
 import { AiOutlineFire } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 
+const idUsuario = sessionStorage.getItem('idusuario');
+
 export const SidebarData = [
     {
         title: 'Perfil',
-        path: '/perfil',
+        path: `/perfil/${idUsuario}`,
         icon: <CgProfile />,
         cName: 'nav-text',
     },
