@@ -10,14 +10,12 @@ async function getProfilePhotos({ keyword }) {
             if (keyword) {
                 let newImages = images.filter((image) => {
                     if (image.idUsuario === Number(keyword)) {
-                        console.log('Image :', image);
                         return image;
                     }
                 });
-                console.log('NewImages: ', newImages);
+
                 return newImages;
             } else {
-                console.log('else images: ', images);
                 return images;
             }
         });

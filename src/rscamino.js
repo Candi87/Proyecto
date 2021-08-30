@@ -61,7 +61,10 @@ function Rscamino() {
                             >
                                 <Wall />
                             </Route>
-                            <Route path={'/perfil'}>
+                            <Route exact path={'/perfil'}>
+                                <Profile />
+                            </Route>
+                            <Route exact path={'/perfil/:idUsuario'}>
                                 <Profile />
                             </Route>
                             <Route exact path={'/tendencias'}>

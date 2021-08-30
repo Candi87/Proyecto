@@ -1,0 +1,8 @@
+.trendings-profile-photos {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    margin: 15px;
+}

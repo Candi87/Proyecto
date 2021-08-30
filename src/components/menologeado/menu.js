@@ -9,6 +9,7 @@ import { RiMenuFoldFill } from 'react-icons/ri';
 import { RiMenuUnfoldFill } from 'react-icons/ri';
 import { IconContext } from 'react-icons';
 import Blog from '../modal/Blog';
+import EditProfile from '../editprofile/EditProfile';
 
 function Menu() {
     const [sidebar, setSidebar] = useState(false);
@@ -29,6 +30,7 @@ function Menu() {
                     <h1>A GUÍA DO CAMIÑO</h1>
 
                     <Blog />
+                    <EditProfile />
                 </div>
 
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

@@ -1,6 +1,6 @@
 .carrusel-fotos-perfil {
     width: 120vh;
-    height: 200px;
+    height: 240px;
     margin: auto;
     margin-top: 150px;
     background-color: white;
@@ -51,4 +51,7 @@ p {
 }
 .photos {
     text-align: center;
+}
+.fotoperfil-container {
+    display: flex;
 }

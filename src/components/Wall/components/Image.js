@@ -1,4 +1,3 @@
-import ListOfComments from './ListOfComments';
 import './listOfImages.css';
 
 function Image({ id, idUsuario, descripcion, url, likes }) {

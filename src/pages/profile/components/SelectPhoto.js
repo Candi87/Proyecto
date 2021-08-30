@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import ListProfilePhotos from './ListProfilePhotos';
 
 function SelectPhoto() {
     let token = sessionStorage.getItem('token');
     let idUsuario = sessionStorage.getItem('idusuario');
-    let [selectImg, setSelectImg] = useState('');
+
+    let [fotoperfil, setFotoPerfil] = useState('');
     async function imageProfile() {
         const response = await fetch(
             `http://localhost:4000/usuarios/${idUsuario}`,
@@ -11,16 +13,23 @@ function SelectPhoto() {
                 method: 'PUT',
                 headers: {
                     authorization: token,
+                    'Content-Type': 'multipart/form-data',
+                },
+                body: {
+                    fotoperfil: fotoperfil,
                 },
             }
         );
 
-        selectImg = response.json();
-        console.log('imagen perfil', selectImg);
+        fotoperfil = response.json();
+        setFotoPerfil();
+
+        console.log('imagen perfil', fotoperfil);
     }
+
     imageProfile();
-    console.log('token', token);
-    return <div onClick={setSelectImg}></div>;
+
+    return <div onClick={setFotoPerfil}>{fotoperfil}</div>;
 }
 
 export default SelectPhoto;

@@ -4,7 +4,6 @@ import { Modal } from 'bloomer';
 import UploadImage from './UploadImg';
 import './modal.css';
 const CustomModal = ({ isActive, handleClose, image }) => {
-    console.log(isActive);
     return (
         <Modal isActive={isActive}>
             <div className="uploadimage_div">

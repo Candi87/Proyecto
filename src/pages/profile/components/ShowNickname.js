@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import '../profile.css';
+import { useParams } from 'react-router-dom';
 
-function ShowNickname() {
+function ShowNickname({ className }) {
     let token = sessionStorage.getItem('token');
-    let idUsuario = sessionStorage.getItem('idusuario');
+    let { idUsuario } = useParams();
     let [user, setUser] = useState('');
-    let [date, setDate] = useState('');
-    let [email, setEmail] = useState('');
+
+    let [name, setName] = useState('');
 
     async function nickName() {
         const response = await fetch(
@@ -19,19 +20,17 @@ function ShowNickname() {
             }
         );
         const data = await response.json();
-        console.log(data.informacion);
-        setDate(data.informacion.createdAt);
+
         setUser(data.informacion.nickname);
-        setEmail(data.informacion.email);
+        setName(data.informacion.name);
     }
 
     nickName();
 
     return (
         <div>
-            <p className="nickname">{user}</p>
-            <p className="date"> {date}</p>
-            <p className="email">{email}</p>
+            <p className={className}>{user}</p>
+            <p className={className}>{name}</p>
         </div>
     );
 }
